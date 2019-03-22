@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WebFont from "webfontloader";
+import WebFont from 'webfontloader';
 // load components
 import App from './components/App/App';
+import './index.scss';
 import * as serviceWorker from './serviceWorker';
 
 // loading fonts
 WebFont.load({
   google: {
-    families: ['Rubik:300,300i,400,500']
+    families: ['Aleo:300,300i,400,400i,700']
   }
 });
 

@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import styles from "./App.module.scss";
+import TitleBar from '../TitleBar/TitleBar';
+import NavMenu from '../NavMenu/NavMenu';
+import styles from './App.module.scss';
 
 class App extends React.Component {
   render() {
-    return <div />;
+    return <TitleBar />;
   }
 }
 

@@ -1,0 +1,22 @@
+.newsletterHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0 20px 20px 20px;
+  border-bottom: 1px solid grey;
+}
+
+.title {
+  font-weight: 700;
+  margin: 0;
+  font-size: 30pt;
+  height: 47px;
+}
+
+.timeStamp {
+  font-weight: 100;
+  font-style: italic;
+  font-size: 12pt;
+}
