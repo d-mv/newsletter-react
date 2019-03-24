@@ -9,6 +9,7 @@ import reduxPromise from 'redux-promise';
 // reducers
 import postsReducer from './reducers/posts_reducer';
 import sourcesReducer from './reducers/sources_reducer';
+import starPostReducer from './reducers/star_post_reducer';
 import selectPostReducer from './reducers/select_post_reducer';
 import selectModuleReducer from './reducers/select_module_reducer';
 
@@ -22,12 +23,13 @@ import * as serviceWorker from './serviceWorker';
 // loading fonts
 WebFont.load({
   google: {
-    families: ['Aleo:300,300i,400,400i,700']
+    families: ['Aleo:300,300i,400,400i,700', 'IBM Plex Mono:300,400']
   }
 });
 
 const initialState = {
   posts: [],
+  starPost: '',
   sources: [],
   selectPost: '',
   selectModule: 'Home'
@@ -37,6 +39,7 @@ const initialState = {
 const reducers = combineReducers({
   posts: postsReducer,
   sources: sourcesReducer,
+  starPost: starPostReducer,
   selectPost: selectPostReducer,
   selectModule: selectModuleReducer
 });

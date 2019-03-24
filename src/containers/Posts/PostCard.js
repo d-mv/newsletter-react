@@ -32,7 +32,7 @@ class PostCard extends React.Component {
         <div className={style.title}>{this.props.post.title}</div>
         {/* <div >{props.post.url}</div> */}
         <div className={style.secondLine}>
-          <div className={style.author}>by {this.props.post.author}</div>
+          <div className={style.source}>@ {this.props.post.source}</div>
           <PostButton type="star" value={this.props.post.star} />
         </div>
         <div

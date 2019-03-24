@@ -7,7 +7,7 @@ import { setPosts } from '../actions';
 
 import PostCardList from './Posts/PostCardList';
 import SourcesList from './Sources/SourcesList';
-import PostShow from '../components/Posts/PostShow';
+import PostShow from './Posts/PostShow';
 
 import style from './ContentDisplay.module.scss';
 

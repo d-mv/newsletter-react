@@ -28,9 +28,12 @@ $accent: #6d6bc4;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  padding: 5px 0;
+}
+
+.source {
   font-weight: 300;
   font-style: italic;
+  margin-top: 10px;
 }
 
 .text {
