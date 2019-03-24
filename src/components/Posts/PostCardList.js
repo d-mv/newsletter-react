@@ -4,15 +4,13 @@ import { connect } from 'react-redux';
 // Actions
 import { setPosts } from '../../actions';
 
-import NavMenu from '../NavMenu/NavMenu';
 import PostCard from '../../containers/PostCard';
 import style from './PostCardList.module.scss';
 
 class PostCardList extends React.Component {
   render() {
     return (
-      <div className={style.contentFlex}>
-        <NavMenu />
+      <div className={style.content}>
         {this.props.posts.map(post => {
           return (
             <div key={post.title}>

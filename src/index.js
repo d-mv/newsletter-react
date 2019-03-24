@@ -28,7 +28,7 @@ WebFont.load({
 const initialState = {
   posts: [],
   selectPost: '',
-  selectModule: 'posts'
+  selectModule: 'Home'
 };
 
 // Define reducers

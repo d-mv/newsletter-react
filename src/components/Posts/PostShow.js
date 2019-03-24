@@ -1,57 +1,27 @@
 import React from 'react';
 
-import NavMenu from '../NavMenu/NavMenu';
 import PostButton from '../../elements/PostButton/PostButton';
+import dateTime from '../../modules/date_time';
 import style from './PostShow.module.scss';
-const months = {
-  1: 'Jan',
-  2: 'Feb',
-  3: 'Mar',
-  4: 'Apr',
-  5: 'May',
-  6: 'Jun',
-  7: 'Jul',
-  8: 'Aug',
-  9: 'Sep',
-  10: 'Oct',
-  11: 'Nov',
-  12: 'Dec'
+
+const handleClick = url => {
+  window.open(url, '_blank');
 };
-const daysOfWeek = {
-  1: 'Sun',
-  2: 'Mon',
-  3: 'Tue',
-  4: 'Wed',
-  5: 'Thu',
-  6: 'Fri',
-  7: 'Sat'
-};
+
 const postShow = props => {
-  // const text = props.post.text
-  //   .replace(/<(?:.|\n)*?>/gm, "");
   const text = props.post.text;
-
-  // <div>{props.post.read}</div>;
-  const bodyClass = style.body;
-  // < div className = { style.star } > { props.post.star }</div>
-  const datePublished = new Date(props.post.published);
-  let timeToDisplay = `${datePublished.getHours()}:${datePublished.getMinutes()} am`;
-  if (datePublished.getHours() > 12) {
-    timeToDisplay = `${datePublished.getHours() -
-      12}:${datePublished.getMinutes()} pm`;
-  }
-  const dateToDisplay = `${
-    daysOfWeek[datePublished.getDay() + 1]
-  } ${datePublished.getDate()} ${
-    months[datePublished.getMonth() + 1]
-  } at ${timeToDisplay}`;
-
+  const publishedDate = dateTime(new Date(props.post.published));
+  const parsedDate = dateTime(new Date(props.post.parsed));
+  const pages = Math.round(props.post.text.length / 3000);
   return (
     <div>
-      <NavMenu />
       <div className={style.body}>
-        <div className={style.title}>{props.post.title}</div>
-        {/* <div >{props.post.url}</div> */}
+        <div
+          className={style.title}
+          onClick={() => handleClick(props.post.url)}
+        >
+          {props.post.title}
+        </div>
         <div className={style.secondLine}>
           <div className={style.author}>by {props.post.author}</div>
           <div className={style.buttonsWrapper}>
@@ -59,15 +29,15 @@ const postShow = props => {
             <PostButton type="delete" />
           </div>
         </div>
-        {/* <div>{props.post.parsed}</div> */}
         <div
           className={style.text}
           dangerouslySetInnerHTML={{ __html: text }}
         />
         <div className={style.divider} />
         <div className={style.statusLine}>
-          <div>{dateToDisplay}</div>
-          <div>~ {Math.round(props.post.text.length / 3000)} pages</div>
+          <div>published: {publishedDate}</div>
+          <div>parsed: {parsedDate}</div>
+          <div>~ {pages} pages</div>
         </div>
       </div>
     </div>

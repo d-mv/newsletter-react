@@ -6,30 +6,9 @@ import { connect } from 'react-redux';
 import { selectPost } from '../actions';
 
 import PostButton from '../elements/PostButton/PostButton';
+import dateTime from '../modules/date_time';
 import style from './PostCard.module.scss';
-const months = {
-  1: 'Jan',
-  2: 'Feb',
-  3: 'Mar',
-  4: 'Apr',
-  5: 'May',
-  6: 'Jun',
-  7: 'Jul',
-  8: 'Aug',
-  9: 'Sep',
-  10: 'Oct',
-  11: 'Nov',
-  12: 'Dec'
-};
-const daysOfWeek = {
-  1: 'Sun',
-  2: 'Mon',
-  3: 'Tue',
-  4: 'Wed',
-  5: 'Thu',
-  6: 'Fri',
-  7: 'Sat'
-};
+
 class PostCard extends React.Component {
   handleClick = () => {
     this.props.selectPost(this.props.post);
@@ -38,22 +17,14 @@ class PostCard extends React.Component {
     const text = this.props.post.text
       .substring(0, 800)
       .replace(/<(?:.|\n)*?>/gm, '');
-    // <div>{props.post.read}</div>;
-    const bodyClass = style.bodyFlex;
-    // < div className = { style.star } > { props.post.star }</div>
-    const star = 'fas fa-star';
-    const datePublished = new Date(this.props.post.published);
-    let timeToDisplay = `${datePublished.getHours()}:${datePublished.getMinutes()} am`;
-    if (datePublished.getHours() > 12) {
-      timeToDisplay = `${datePublished.getHours() -
-        12}:${datePublished.getMinutes()} pm`;
+    let bodyClass = '';
+    if (this.props.post.read) {
+      bodyClass = style.bodyRead;
+    } else {
+      bodyClass = style.body;
     }
-    const dateToDisplay = `${
-      daysOfWeek[datePublished.getDay() + 1]
-    } ${datePublished.getDate()} ${
-      months[datePublished.getMonth() + 1]
-    } at ${timeToDisplay}`;
-
+    const publishedDate = dateTime(new Date(this.props.post.published));
+    const readTime = Math.round((this.props.post.text.length / 3000) * 2);
     return (
       <div className={bodyClass} onClick={this.handleClick}>
         <div className={style.title}>{this.props.post.title}</div>
@@ -62,15 +33,13 @@ class PostCard extends React.Component {
           <div className={style.author}>by {this.props.post.author}</div>
           <PostButton type="star" value={this.props.post.star} />
         </div>
-
-        {/* <div>{props.post.parsed}</div> */}
         <div
           className={style.text}
           dangerouslySetInnerHTML={{ __html: text }}
         />
         <div className={style.statusLine}>
-          <div>{dateToDisplay}</div>
-          <div>~ {Math.round(this.props.post.text.length / 3000)} pages</div>
+          <div>{publishedDate}</div>
+          <div>~ {readTime} mins</div>
         </div>
       </div>
     );

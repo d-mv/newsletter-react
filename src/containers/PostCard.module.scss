@@ -1,3 +1,9 @@
+$lightGrey: #d3d3d3;
+$silverSand: #c4c4c4;
+$dimGrey: #6b6b6b;
+$arsenic: #444444;
+$darkMediumGrey: #aaaaaa;
+$accent: #6d6bc4;
 .body {
   padding: 10px;
 }
@@ -6,6 +12,11 @@
   @extend .body;
   width: 300px;
   height: 500px;
+}
+
+.bodyRead {
+  @extend .body;
+  color: $dimGrey;
 }
 
 .title {
@@ -35,7 +46,6 @@
 }
 
 // delete
-
 .article-source {
   display: flex;
   justify-content: space-between;

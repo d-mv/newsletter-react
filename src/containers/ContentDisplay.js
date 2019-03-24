@@ -29,20 +29,26 @@ class ContentDisplay extends React.Component {
   };
 
   render() {
-    const postId = '5c96634c1580d234f5a062d2';
-    console.log(this.props.selectModule);
-    const selected = 0;
-    const display = '';
-    if (this.props.selectPost === '') {
-      return (
-        <div className={style.content}>
-          <PostCardList />
-        </div>
-      );
+    // const postId = '5c96634c1580d234f5a062d2';
+    const selected = this.props.selectPost;
+    const display = this.props.selectModule;
+    if (selected === '') {
+      switch (display) {
+        case 'Home':
+          return (
+            <div className={style.content}>
+              <PostCardList />
+            </div>
+          );
+        case 'Sources':
+          return (
+            <div className={style.content}>"This will be Sources page"</div>
+          );
+      }
     } else {
       return (
         <div className={style.content}>
-          <PostShow post={this.props.selectPost} />
+          <PostShow post={selected} />
         </div>
       );
     }

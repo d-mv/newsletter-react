@@ -2,7 +2,8 @@ import React from 'react';
 
 import TitleBar from '../TitleBar/TitleBar';
 import ContentDisplay from '../../containers/ContentDisplay';
-import styles from './App.module.scss';
+import NavMenu from '../NavMenu/NavMenu';
+import style from './App.module.scss';
 
 class App extends React.Component {
   render() {
@@ -10,6 +11,7 @@ class App extends React.Component {
       <div>
         <TitleBar />
         <ContentDisplay />
+        <NavMenu />
       </div>
     );
   }
