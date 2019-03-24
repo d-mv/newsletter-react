@@ -6,8 +6,10 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { logger } from 'redux-logger';
 import reduxPromise from 'redux-promise';
 
+// reducers
 import postsReducer from './reducers/posts_reducer';
 import selectPostReducer from './reducers/select_post_reducer';
+import selectModuleReducer from './reducers/select_module_reducer';
 
 import WebFont from 'webfontloader';
 
@@ -25,13 +27,15 @@ WebFont.load({
 
 const initialState = {
   posts: [],
-  selectPost: ''
+  selectPost: '',
+  selectModule: 'posts'
 };
 
 // Define reducers
 const reducers = combineReducers({
   posts: postsReducer,
-  selectPost: selectPostReducer
+  selectPost: selectPostReducer,
+  selectModule: selectModuleReducer
 });
 // Add logger
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

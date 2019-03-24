@@ -1,5 +1,6 @@
 import React from 'react';
 
+import NavMenu from '../NavMenu/NavMenu';
 import PostButton from '../../elements/PostButton/PostButton';
 import style from './PostShow.module.scss';
 const months = {
@@ -46,23 +47,28 @@ const postShow = props => {
   } at ${timeToDisplay}`;
 
   return (
-    <div className={style.body}>
-      <div className={style.title}>{props.post.title}</div>
-      {/* <div >{props.post.url}</div> */}
-      <div className={style.secondLine}>
-        <div className={style.author}>by {props.post.author}</div>
-        <div className={style.buttonsWrapper}>
-          <PostButton type="star" value={props.post.star} />
-          <PostButton type="delete" />
+    <div>
+      <NavMenu />
+      <div className={style.body}>
+        <div className={style.title}>{props.post.title}</div>
+        {/* <div >{props.post.url}</div> */}
+        <div className={style.secondLine}>
+          <div className={style.author}>by {props.post.author}</div>
+          <div className={style.buttonsWrapper}>
+            <PostButton type="star" value={props.post.star} />
+            <PostButton type="delete" />
+          </div>
         </div>
-      </div>
-      {/* <div>{props.post.parsed}</div> */}
-      <div className={style.text} dangerouslySetInnerHTML={{ __html: text }} />
-      <div className={style.divider} />
-
-      <div className={style.statusLine}>
-        <div>{dateToDisplay}</div>
-        <div>~ {Math.round(props.post.text.length / 3000)} pages</div>
+        {/* <div>{props.post.parsed}</div> */}
+        <div
+          className={style.text}
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
+        <div className={style.divider} />
+        <div className={style.statusLine}>
+          <div>{dateToDisplay}</div>
+          <div>~ {Math.round(props.post.text.length / 3000)} pages</div>
+        </div>
       </div>
     </div>
   );

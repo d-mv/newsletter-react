@@ -31,9 +31,6 @@ const daysOfWeek = {
   7: 'Sat'
 };
 class PostCard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   handleClick = () => {
     this.props.selectPost(this.props.post);
   };
@@ -84,9 +81,10 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({ selectPost: selectPost }, dispatch);
 };
 
+// ! changed selectedPost to selectPost
 const mapStateToProps = state => {
   return {
-    selectedPost: state.selectedPost
+    selectPost: state.selectPost
   };
 };
 

@@ -1,8 +1,5 @@
 export function setPosts() {
   const postsUrl = `${process.env.REACT_APP_API_URL}/sources/freeCodeCamp`;
-
-  console.log(postsUrl);
-
   const promise = fetch(postsUrl).then(r => r.json());
 
   return {
@@ -15,5 +12,11 @@ export function selectPost(post) {
   return {
     type: 'SELECT_POST',
     payload: post
+  };
+}
+export function selectModule(module) {
+  return {
+    type: 'SELECT_MODULE',
+    payload: module
   };
 }

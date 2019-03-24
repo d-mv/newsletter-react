@@ -1,7 +1,6 @@
 import React from 'react';
 
 import TitleBar from '../TitleBar/TitleBar';
-import NavMenu from '../NavMenu/NavMenu';
 import ContentDisplay from '../../containers/ContentDisplay';
 import styles from './App.module.scss';
 

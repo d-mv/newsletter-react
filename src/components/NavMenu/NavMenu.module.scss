@@ -1,0 +1,20 @@
+$lightGrey: #d3d3d3;
+$silverSand: #c4c4c4;
+$dimGrey: #6b6b6b;
+$arsenic: #444444;
+$darkMediumGrey: #aaaaaa;
+$accent: #6d6bc4;
+.menu {
+  position: fixed;
+  bottom: 5%;
+  right: -220px;
+  display: flex;
+  justify-content: space-between;
+  width: 270px;
+  background-color: rgba(50, 50, 50, 0.8); // padding-top: 2px;
+  border-radius: 4px 0 0 4px;
+  transition: 0.7s;
+  &:hover {
+    right: 0;
+  }
+}

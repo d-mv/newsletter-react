@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 // Actions
 import { setPosts } from '../actions';
 
-import PostCard from './PostCard';
-import PostShow from '../components/Post/PostShow';
+import NavMenu from '../components/NavMenu/NavMenu';
+import PostCardList from '../components/Posts/PostCardList';
+import PostShow from '../components/Posts/PostShow';
 
 import style from './ContentDisplay.module.scss';
 
@@ -29,29 +30,18 @@ class ContentDisplay extends React.Component {
 
   render() {
     const postId = '5c96634c1580d234f5a062d2';
+    console.log(this.props.selectModule);
     const selected = 0;
-    // console.log(this.props.selectPost)
-    // this.props.posts.map(post => {
-    //   if (post.id === (postId)) {
-    //     return post
-    //   }
-    // })
+    const display = '';
     if (this.props.selectPost === '') {
       return (
-        <div className={style.contentFlex}>
-          {this.props.posts.map(post => {
-            return (
-              <div>
-                <PostCard post={post} key={post.title} />
-                <div className={style.divider} />
-              </div>
-            );
-          })}
+        <div className={style.content}>
+          <PostCardList />
         </div>
       );
     } else {
       return (
-        <div>
+        <div className={style.content}>
           <PostShow post={this.props.selectPost} />
         </div>
       );
@@ -66,7 +56,8 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   return {
     posts: state.posts,
-    selectPost: state.selectPost
+    selectPost: state.selectPost,
+    selectModule: state.selectModule
   };
 };
 

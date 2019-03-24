@@ -1,0 +1,39 @@
+$lightGrey: #d3d3d3;
+$silverSand: #c4c4c4;
+$dimGrey: #6b6b6b;
+$arsenic: #444444;
+$darkMediumGrey: #aaaaaa;
+$accent: #6d6bc4;
+.element {
+  margin: {
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: $lightGrey;
+  transition: 0.7s;
+  font-weight: 300;
+  font-size: 1.2rem;
+  &:hover {
+    background-color: $silverSand;
+    color: $arsenic;
+  }
+}
+
+.elementArrow {
+  @extend .element;
+  margin: 0;
+}
+
+.button {
+  padding: 1rem;
+  align-self: center;
+}
+
+.buttonArrow {
+  @extend .button;
+  font-weight: 400;
+  font-size: 2rem;
+}
