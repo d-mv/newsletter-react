@@ -3,15 +3,17 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // Actions
-import { selectPost } from '../actions';
+import { selectPost } from '../../actions';
+import { selectModule } from '../../actions';
 
-import PostButton from '../elements/PostButton/PostButton';
-import dateTime from '../modules/date_time';
+import PostButton from '../../elements/PostButton/PostButton';
+import dateTime from '../../modules/date_time';
 import style from './PostCard.module.scss';
 
 class PostCard extends React.Component {
   handleClick = () => {
     this.props.selectPost(this.props.post);
+    this.props.selectModule('show');
   };
   render() {
     const text = this.props.post.text
@@ -47,13 +49,17 @@ class PostCard extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ selectPost: selectPost }, dispatch);
+  return bindActionCreators(
+    { selectPost: selectPost, selectModule: selectModule },
+    dispatch
+  );
 };
 
 // ! changed selectedPost to selectPost
 const mapStateToProps = state => {
   return {
-    selectPost: state.selectPost
+    selectPost: state.selectPost,
+    selectModule: state.selectModule
   };
 };
 

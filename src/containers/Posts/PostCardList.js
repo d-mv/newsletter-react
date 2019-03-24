@@ -4,10 +4,26 @@ import { connect } from 'react-redux';
 // Actions
 import { setPosts } from '../../actions';
 
-import PostCard from '../../containers/PostCard';
+import PostCard from './PostCard';
 import style from './PostCardList.module.scss';
 
 class PostCardList extends React.Component {
+  componentWillMount() {
+    this.fetchMessages();
+  }
+
+  componentDidMount() {
+    this.refresher = setInterval(this.fetchMessages, 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.refresher);
+  }
+
+  fetchMessages = () => {
+    this.props.setPosts();
+  };
+
   render() {
     return (
       <div className={style.content}>

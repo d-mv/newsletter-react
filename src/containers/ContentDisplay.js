@@ -5,52 +5,50 @@ import { connect } from 'react-redux';
 // Actions
 import { setPosts } from '../actions';
 
-import NavMenu from '../components/NavMenu/NavMenu';
-import PostCardList from '../components/Posts/PostCardList';
+import PostCardList from './Posts/PostCardList';
+import SourcesList from './Sources/SourcesList';
 import PostShow from '../components/Posts/PostShow';
 
 import style from './ContentDisplay.module.scss';
 
 class ContentDisplay extends React.Component {
-  componentWillMount() {
-    this.fetchMessages();
+  shouldComponentUpdate(nextProps) {
+    const newModule = this.props.selectModule !== nextProps.selectModule;
+    const newSelectPost = this.props.selectPost !== nextProps.selectPost;
+    // const differentDone = this.props.done !== nextProps.done
+    return newModule || newSelectPost;
+    // return newModule || differentDone;
   }
-
-  componentDidMount() {
-    this.refresher = setInterval(this.fetchMessages, 5000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.refresher);
-  }
-
-  fetchMessages = () => {
-    this.props.setPosts();
-  };
 
   render() {
     // const postId = '5c96634c1580d234f5a062d2';
     const selected = this.props.selectPost;
     const display = this.props.selectModule;
-    if (selected === '') {
-      switch (display) {
-        case 'Home':
-          return (
-            <div className={style.content}>
-              <PostCardList />
-            </div>
-          );
-        case 'Sources':
-          return (
-            <div className={style.content}>"This will be Sources page"</div>
-          );
-      }
-    } else {
-      return (
-        <div className={style.content}>
-          <PostShow post={selected} />
-        </div>
-      );
+    switch (display) {
+      case 'Home':
+        return (
+          <div className={style.content}>
+            <PostCardList />
+          </div>
+        );
+      case 'show':
+        return (
+          <div className={style.content}>
+            <PostShow post={selected} />
+          </div>
+        );
+      case 'Sources':
+        return (
+          <div className={style.content}>
+            <SourcesList />
+          </div>
+        );
+      default:
+        return (
+          <div className={style.content}>
+            <PostCardList />
+          </div>
+        );
     }
   }
 }
