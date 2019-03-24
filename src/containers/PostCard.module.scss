@@ -1,0 +1,91 @@
+.body {
+  padding: 10px;
+}
+
+.bodyFlex {
+  @extend .body;
+  width: 300px;
+  height: 500px;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.secondLine {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.text {
+  padding: 5px 0;
+}
+
+.statusLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 5px 0;
+}
+
+// delete
+
+.article-source {
+  display: flex;
+  justify-content: space-between;
+  line-height: 20px;
+  margin: 3px 0 5px 0;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  margin-bottom: 10px;
+}
+
+.article-link {
+  color: black;
+  text-decoration: none;
+}
+
+.article-link:hover {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.article-link:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.star {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.star:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.star:visited {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.star-on {
+  color: rgba(186, 93, 93, 0.8);
+}
+
+.star-on:hover {
+  color: rgb(183, 20, 20);
+}
+
+.star-on:visited {
+  color: rgba(186, 93, 93, 0.8);
+}

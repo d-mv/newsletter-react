@@ -1,0 +1,29 @@
+$lightGrey: #d3d3d3;
+$silverSand: #c4c4c4;
+$dimGrey: #6b6b6b;
+$arsenic: #444444;
+$darkMediumGrey: #aaaaaa;
+$accent: #6d6bc4;
+
+.button {
+  padding: 10px;
+  transition: 0.7s;
+  margin-left: 5px;
+  &:hover {
+    color: black;
+    transform: scale(1.1);
+  }
+}
+
+.regular {
+  @extend .button;
+}
+
+.on {
+  @extend .button;
+  color: $accent;
+}
+
+.delete {
+  @extend .button;
+}

@@ -1,4 +1,10 @@
+$lightGrey: #d3d3d3;
+$silverSand: #c4c4c4;
+$dimGrey: #6b6b6b;
+$arsenic: #444444;
+$darkMediumGrey: #aaaaaa;
 body {
   font-family: Aleo;
-  background-color: #d6d6d6 !important;
+  background-color: $lightGrey !important;
+  color: $arsenic;
 }

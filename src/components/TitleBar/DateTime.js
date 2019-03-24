@@ -1,10 +1,8 @@
-import React from 'react';
-
 const currentTimestamp = props => {
   var hours = 0;
   var d = new Date(),
     minutes =
-      d.getMinutes().toString().length == 1
+      d.getMinutes().toString().length === 1
         ? '0' + d.getMinutes()
         : d.getMinutes(),
     ampm = d.getHours() >= 12 ? 'pm' : 'am',
@@ -31,7 +29,7 @@ const currentTimestamp = props => {
       'Friday',
       'Saturday'
     ];
-  if (d.getHours() == 0) {
+  if (d.getHours() === 0) {
     hours = 12;
   } else if (d.getHours() > 12) {
     hours = d.getHours() - 12;
