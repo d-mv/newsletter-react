@@ -1,11 +1,6 @@
 import React from 'react';
-// Redux
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-// Actions
-import { starPost } from '../../actions';
 
-import PostButton from '../../elements/PostButton/PostButton';
+import PostButton from './PostButton/PostButton';
 import dateTime from '../../modules/date_time';
 import style from './PostShow.module.scss';
 
@@ -13,10 +8,7 @@ class PostShow extends React.Component {
   handleClick = () => {
     window.open(this.props.post.url, '_blank');
   };
-  starPost = () => {
-    console.log('hello');
-    this.props.starPost(this.props.post._id);
-  };
+
   render() {
     const text = this.props.post.text;
     const publishedDate = dateTime(new Date(this.props.post.published));
@@ -31,9 +23,11 @@ class PostShow extends React.Component {
           <div className={style.secondLine}>
             <div className={style.author}>by {this.props.post.author}</div>
             <div className={style.buttonsWrapper}>
-              <div onClick={this.starPost}>
-                <PostButton type="star" value={this.props.post.star} />
-              </div>
+              <PostButton
+                type="star"
+                value={this.props.post.star}
+                postId={this.props.post._id}
+              />
               <PostButton type="delete" />
             </div>
           </div>
@@ -52,17 +46,5 @@ class PostShow extends React.Component {
     );
   }
 }
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ starPost: starPost }, dispatch);
-};
 
-const mapStateToProps = state => {
-  return {
-    starPost: state.starPost
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PostShow);
+export default PostShow;
