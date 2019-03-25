@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // Actions
 import { setSources } from '../../actions';
 
+import SourceCard from './SourceCard';
 import style from './SourcesList.module.scss';
 
 class SourcesList extends React.Component {
@@ -25,11 +26,12 @@ class SourcesList extends React.Component {
   render() {
     console.log();
     return (
-      <div>
+      <section className={style.section}>
+        <section>Add Source</section>
         {this.props.sources.map(source => {
-          return <div key={source.name}>{source.name}</div>;
+          return <SourceCard source={source} key={source._id} />;
         })}
-      </div>
+      </section>
     );
   }
 }
