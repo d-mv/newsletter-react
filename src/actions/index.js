@@ -7,7 +7,7 @@ export function setPosts() {
     payload: promise
   };
 }
-export function starPost(query) {
+export function updatePost(query) {
   const postUrl = `${process.env.REACT_APP_API_URL}/posts/update`;
   const promise = fetch(postUrl, {
     method: 'POST',
@@ -23,7 +23,7 @@ export function starPost(query) {
   }).then(r => console.log(`server reply for update: ${r.json()}`));
 
   return {
-    type: 'STAR_POST',
+    type: 'UPDATE_POST',
     payload: query
   };
 }

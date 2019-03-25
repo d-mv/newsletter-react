@@ -3,14 +3,12 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // Actions
-import { starPost } from '../../../actions';
+import { updatePost } from '../../../actions';
 
 import style from './PostButton.module.scss';
 
 class PostButton extends React.Component {
-  starPost = () => {
-    // console.log(this.props.value);
-    // console.log(this.props.postId);
+  updatePost = () => {
     let flag = '';
     if (this.props.value) {
       flag = false;
@@ -21,7 +19,7 @@ class PostButton extends React.Component {
     const fields = {};
     fields[`${this.props.type}`] = flag;
     query['fields'] = fields;
-    this.props.starPost(query);
+    this.props.updatePost(query);
   };
 
   render() {
@@ -41,7 +39,7 @@ class PostButton extends React.Component {
         buttonStyle = style.delete;
     }
     return (
-      <button className={buttonStyle} onClick={this.starPost}>
+      <button className={buttonStyle} onClick={this.updatePost}>
         <i className={button} />
       </button>
     );
@@ -49,12 +47,12 @@ class PostButton extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ starPost: starPost }, dispatch);
+  return bindActionCreators({ updatePost: updatePost }, dispatch);
 };
 
 const mapStateToProps = state => {
   return {
-    starPost: state.starPost
+    updatePost: state.updatePost
   };
 };
 export default connect(

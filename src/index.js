@@ -9,7 +9,7 @@ import reduxPromise from 'redux-promise';
 // reducers
 import postsReducer from './reducers/posts_reducer';
 import sourcesReducer from './reducers/sources_reducer';
-import starPostReducer from './reducers/star_post_reducer';
+import updatePostReducer from './reducers/update_post_reducer';
 import selectPostReducer from './reducers/select_post_reducer';
 import selectModuleReducer from './reducers/select_module_reducer';
 
@@ -29,7 +29,7 @@ WebFont.load({
 
 const initialState = {
   posts: [],
-  starPost: '',
+  updatePost: '',
   sources: [],
   selectPost: '',
   selectModule: 'Home'
@@ -39,7 +39,7 @@ const initialState = {
 const reducers = combineReducers({
   posts: postsReducer,
   sources: sourcesReducer,
-  starPost: starPostReducer,
+  updatePost: updatePostReducer,
   selectPost: selectPostReducer,
   selectModule: selectModuleReducer
 });
