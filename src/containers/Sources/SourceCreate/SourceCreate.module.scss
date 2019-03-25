@@ -1,0 +1,30 @@
+$lightGrey: #d3d3d3;
+$silverSand: #c4c4c4;
+$dimGrey: #6b6b6b;
+$arsenic: #444444;
+$darkMediumGrey: #aaaaaa;
+$accent: #6d6bc4;
+@keyframes createForm {
+  from {
+    // transform: scaleY(0);
+    height: 0;
+  }
+  to {
+    // transform: scaleY(1);
+    height: 200px;
+  }
+}
+
+.createForm {
+  height: 200px; // border: 1px solid red;
+  background-color: $dimGrey;
+  animation: createForm 1s linear;
+  border: {
+    top: 1px solid $arsenic;
+    left: 1px solid $arsenic;
+  } // color: $dimGrey;
+}
+
+input {
+  transition-delay: 1s;
+}

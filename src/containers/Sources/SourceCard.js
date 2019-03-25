@@ -4,9 +4,6 @@ import SourceButton from './SourceButton/SourceButton';
 import style from './SourceCard.module.scss';
 
 class SourceCard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   goHome() {}
   render() {
     return (

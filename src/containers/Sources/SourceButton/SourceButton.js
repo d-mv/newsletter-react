@@ -26,6 +26,9 @@ class SourceButton extends React.Component {
       case 'edit':
         button = 'fas fa-pencil-alt';
         break;
+      case 'add':
+        button = 'fas fa-plus';
+        break;
       default:
         button = 'far fa-trash-alt';
     }

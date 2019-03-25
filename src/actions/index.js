@@ -24,7 +24,27 @@ export function updatePost(query) {
 
   return {
     type: 'UPDATE_POST',
-    payload: query
+    payload: promise
+  };
+}
+export function addSource(query) {
+  const postUrl = `${process.env.REACT_APP_API_URL}/sources/`;
+  const promise = fetch(postUrl, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      action: query.action,
+      id: query.id || '',
+      fields: query.fields
+    })
+  }).then(r => console.log(`server reply for update: ${r.json()}`));
+
+  return {
+    type: 'ADD_SOURCE',
+    payload: promise
   };
 }
 
@@ -48,5 +68,11 @@ export function selectModule(module) {
   return {
     type: 'SELECT_MODULE',
     payload: module
+  };
+}
+export function sourceCreateModule(status) {
+  return {
+    type: 'SHOW_MODULE',
+    payload: status
   };
 }

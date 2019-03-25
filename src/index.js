@@ -9,9 +9,11 @@ import reduxPromise from 'redux-promise';
 // reducers
 import postsReducer from './reducers/posts_reducer';
 import sourcesReducer from './reducers/sources_reducer';
+import addSourceReducer from './reducers/add_source_reducer';
 import updatePostReducer from './reducers/update_post_reducer';
 import selectPostReducer from './reducers/select_post_reducer';
 import selectModuleReducer from './reducers/select_module_reducer';
+import sourceCreateModuleReducer from './reducers/source_create_module_reducer.js';
 
 import WebFont from 'webfontloader';
 
@@ -29,19 +31,23 @@ WebFont.load({
 
 const initialState = {
   posts: [],
-  updatePost: '',
   sources: [],
+  addSource: '',
+  updatePost: '',
   selectPost: '',
-  selectModule: 'Home'
+  selectModule: 'Home',
+  sourceCreateModule: true
 };
 
 // Define reducers
 const reducers = combineReducers({
   posts: postsReducer,
   sources: sourcesReducer,
+  addSource: addSourceReducer,
   updatePost: updatePostReducer,
   selectPost: selectPostReducer,
-  selectModule: selectModuleReducer
+  selectModule: selectModuleReducer,
+  sourceCreateModule: sourceCreateModuleReducer
 });
 // Add logger
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
