@@ -26,16 +26,16 @@ class PostCardList extends React.Component {
 
   render() {
     return (
-      <div className={style.content}>
+      <section className={style.content}>
         {this.props.posts.map(post => {
           return (
-            <div key={post.title}>
+            <section key={post.title}>
               <PostCard post={post} />
               <div className={style.divider} />
-            </div>
+            </section>
           );
         })}
-      </div>
+      </section>
     );
   }
 }

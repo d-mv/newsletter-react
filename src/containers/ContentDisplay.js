@@ -9,8 +9,6 @@ import PostCardList from './Posts/PostCardList';
 import SourcesList from './Sources/SourcesList';
 import PostShow from './Posts/PostShow';
 
-import style from './ContentDisplay.module.scss';
-
 class ContentDisplay extends React.Component {
   shouldComponentUpdate(nextProps) {
     const newModule = this.props.selectModule !== nextProps.selectModule;
@@ -26,29 +24,13 @@ class ContentDisplay extends React.Component {
     const display = this.props.selectModule;
     switch (display) {
       case 'Home':
-        return (
-          <div className={style.content}>
-            <PostCardList />
-          </div>
-        );
+        return <PostCardList />;
       case 'show':
-        return (
-          <div className={style.content}>
-            <PostShow post={selected} />
-          </div>
-        );
+        return <PostShow post={selected} />;
       case 'Sources':
-        return (
-          <div className={style.content}>
-            <SourcesList />
-          </div>
-        );
+        return <SourcesList />;
       default:
-        return (
-          <div className={style.content}>
-            <PostCardList />
-          </div>
-        );
+        return <PostCardList />;
     }
   }
 }

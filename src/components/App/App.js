@@ -7,11 +7,11 @@ import NavMenu from '../NavMenu/NavMenu';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <main>
         <TitleBar />
         <ContentDisplay />
         <NavMenu />
-      </div>
+      </main>
     );
   }
 }

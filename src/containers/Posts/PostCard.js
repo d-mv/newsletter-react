@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { selectPost } from '../../actions';
 import { selectModule } from '../../actions';
 
-import PostButton from '../../elements/PostButton/PostButton';
+import PostButton from './PostButton/PostButton';
 import dateTime from '../../modules/date_time';
 import style from './PostCard.module.scss';
 
@@ -28,22 +28,28 @@ class PostCard extends React.Component {
     const publishedDate = dateTime(new Date(this.props.post.published));
     const readTime = Math.round((this.props.post.text.length / 3000) * 2);
     return (
-      <div className={bodyClass} onClick={this.handleClick}>
-        <div className={style.title}>{this.props.post.title}</div>
-        {/* <div >{props.post.url}</div> */}
-        <div className={style.secondLine}>
+      <article className={bodyClass}>
+        <header className={style.title} onClick={this.handleClick}>
+          {this.props.post.title}
+        </header>
+        <section className={style.secondLine}>
           <div className={style.source}>@ {this.props.post.source}</div>
-          <PostButton type="star" value={this.props.post.star} />
-        </div>
-        <div
+          <PostButton
+            type="star"
+            value={this.props.post.star}
+            postId={this.props.post._id}
+          />
+        </section>
+        <section
           className={style.text}
+          onClick={this.handleClick}
           dangerouslySetInnerHTML={{ __html: text }}
         />
-        <div className={style.statusLine}>
+        <footer className={style.statusLine}>
           <div>{publishedDate}</div>
           <div>~ {readTime} mins</div>
-        </div>
-      </div>
+        </footer>
+      </article>
     );
   }
 }

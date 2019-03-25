@@ -83,12 +83,19 @@ blockquote {
   font-size: 20px;
   letter-spacing: 1px;
   line-height: 20px;
-  text-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
 }
 
 a {
   text-decoration: none;
   color: $arsenic;
+}
+
+hr {
+  display: none;
+}
+
+figcaption {
+  display: none;
 }
 
 .divider {
