@@ -7,6 +7,7 @@ import { selectPost } from '../../actions';
 
 import PostCard from './PostCard';
 import style from './PostCardList.module.scss';
+import Error from '../../components/Error/Error';
 
 class PostCardList extends React.Component {
   componentWillMount() {
@@ -22,22 +23,30 @@ class PostCardList extends React.Component {
   }
 
   fetchMessages = () => {
-    this.props.setPosts();
+    this.props.setPosts().then(data => {});
   };
   selectPostToShow = postId => {
-    this.props.selectPost(postId).then(post => this.props.showPost(post));
+    this.props.selectPost(postId).then(data => {
+      this.props.showPost(data);
+    });
   };
   render() {
+    const message = this.props.posts.message;
+    if (message) {
+      return <Error message={message} />;
+    }
     return (
-      <section className={style.content}>
+      <div className={style.content}>
         {this.props.posts.map(post => {
           return (
-            <section key={post._id}>
-              <PostCard selector={this.selectPostToShow} post={post} />
-            </section>
+            <PostCard
+              selector={this.selectPostToShow}
+              post={post}
+              key={post._id}
+            />
           );
         })}
-      </section>
+      </div>
     );
   }
 }

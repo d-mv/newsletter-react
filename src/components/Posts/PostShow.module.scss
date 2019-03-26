@@ -40,6 +40,8 @@ $accent: #6d6bc4;
 .text {
   font-size: 18px;
   line-height: 25px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .divider {
@@ -65,10 +67,21 @@ $accent: #6d6bc4;
 
 // clear & format text
 .text {
+  width: 100% !important;
+
   article {
     header {
       display: none !important;
     }
+  }
+
+  h1 {
+    font-size: 20px;
+    margin: 10px auto;
+  }
+
+  p {
+    margin: 10px 0;
   }
 
   button {
@@ -119,6 +132,7 @@ $accent: #6d6bc4;
 
   pre {
     @extend code;
+    width: 80%;
     margin: 10px auto;
     padding: 20px 10px;
     background-color: $dimGrey;

@@ -23,7 +23,10 @@ const daysOfWeek = {
 };
 
 const dateTime = props => {
-  const dateFromDb = new Date(props);
+  let dateFromDb = new Date();
+  if (!Object.keys(props).length) {
+    dateFromDb = new Date(props);
+  }
   let timeToDisplay = `${dateFromDb.getHours()}:${dateFromDb.getMinutes()} am`;
   if (dateFromDb.getHours() > 12) {
     timeToDisplay = `${dateFromDb.getHours() -

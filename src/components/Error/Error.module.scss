@@ -1,0 +1,29 @@
+$lightGrey: #d3d3d3;
+$silverSand: #c4c4c4;
+$dimGrey: #6b6b6b;
+$arsenic: #444444;
+$darkMediumGrey: #aaaaaa;
+$accent: #6d6bc4;
+
+.errorWrapper {
+  width: 90%;
+  margin: 20px auto;
+
+  .errorTitle {
+    margin: 0;
+    font-weight: 700;
+    // font-style: italic;
+    letter-spacing: 1px;
+    color: $dimGrey;
+    font-size: 18px;
+    border-bottom: 4px solid $dimGrey;
+    width: 70px;
+  }
+
+  .error {
+    margin: 0;
+    border-left: 4px solid $dimGrey;
+    padding-left: 7px;
+    padding-top: 5px;
+  }
+}
