@@ -55,10 +55,11 @@ export function setSources() {
   };
 }
 
-export function selectPost(post) {
+export function selectPost(postId) {
+  const promise = fetch(`${postUrl}/post/${postId}`).then(r => r.json());
   return {
     type: 'SELECT_POST',
-    payload: post
+    payload: promise
   };
 }
 

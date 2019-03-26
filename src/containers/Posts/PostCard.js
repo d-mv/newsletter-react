@@ -12,8 +12,11 @@ import style from './PostCard.module.scss';
 
 class PostCard extends React.Component {
   handleClick = () => {
-    this.props.selectPost(this.props.post);
-    this.props.selectModule('show');
+    async function select(selectPost, selectModule, postId) {
+      selectPost(postId);
+      selectModule('show');
+    }
+    select(this.props.selectPost, this.props.selectModule, this.props.post._id);
   };
   render() {
     const text = `${this.props.post.text.replace(/<(?:.|\n)*?>/gm, ' ')}...`;
