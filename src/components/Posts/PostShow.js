@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PostButton from './PostButton/PostButton';
+import PostButton from '../../containers/Posts/PostButton/PostButton';
 import dateTime from '../../modules/date_time';
 import style from './PostShow.module.scss';
 
@@ -19,7 +19,7 @@ class PostShow extends React.Component {
     const text = this.props.post.text;
     const publishedDate = dateTime(new Date(this.props.post.published));
     const parsedDate = dateTime(new Date(this.props.post.parsed));
-    const pages = Math.round(this.props.post.text.length / 3000);
+    // const pages = Math.round(this.props.post.text.length / 3000);
     return (
       <article className={style.body}>
         <header className={style.title} onClick={this.handleClick}>
@@ -36,7 +36,7 @@ class PostShow extends React.Component {
             <PostButton type="delete" />
           </div>
         </div>
-        <content
+        <section
           className={style.text}
           dangerouslySetInnerHTML={{ __html: text }}
         />
@@ -44,7 +44,7 @@ class PostShow extends React.Component {
         <footer className={style.statusLine}>
           <div>published: {publishedDate}</div>
           <div>parsed: {parsedDate}</div>
-          <div>~ {pages} pages</div>
+          <div>~ {this.props.post.pages} pages</div>
         </footer>
       </article>
     );

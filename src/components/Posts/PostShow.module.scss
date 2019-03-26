@@ -1,0 +1,138 @@
+$lightGrey: #d3d3d3;
+$silverSand: #c4c4c4;
+$dimGrey: #6b6b6b;
+$arsenic: #444444;
+$darkMediumGrey: #aaaaaa;
+$accent: #6d6bc4;
+
+.body {
+  padding: 10px;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: 'Aleo' !important;
+}
+
+.title {
+  font-size: 24px;
+  font-style: italic;
+}
+
+.secondLine {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.author {
+  font-weight: 300;
+  font-style: italic;
+  padding-top: 10px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.divider {
+  border-bottom: 1px solid grey;
+  height: 2px;
+  width: 90%;
+
+  margin: {
+    top: 20px;
+    bottom: 10px;
+    left: auto;
+    right: auto;
+  }
+}
+
+.statusLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 5px 0;
+}
+
+// clear & format text
+.text {
+  article {
+    header {
+      display: none !important;
+    }
+  }
+
+  button {
+    display: none !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: $arsenic !important;
+  }
+
+  hr {
+    display: none !important;
+  }
+
+  figcaption {
+    display: none !important;
+  }
+
+  time {
+    display: none !important;
+  }
+
+  img {
+    display: none !important;
+  }
+
+  iframe {
+    display: none !important;
+  }
+
+  figure {
+    display: none !important;
+  }
+
+  code {
+    text-decoration: none;
+    background-color: $dimGrey;
+    color: white;
+    padding: 1px 4px;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+    white-space: pre-wrap;
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  pre {
+    @extend code;
+    margin: 10px auto;
+    padding: 20px 10px;
+    background-color: $dimGrey;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
+  }
+
+  blockquote {
+    padding: 10px;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 20px;
+  }
+}

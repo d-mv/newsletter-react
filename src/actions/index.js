@@ -1,14 +1,14 @@
-export function setPosts() {
-  const postsUrl = `${process.env.REACT_APP_API_URL}/posts/all`;
-  const promise = fetch(postsUrl).then(r => r.json());
+const postUrl = process.env.REACT_APP_API_URL;
 
+export function setPosts() {
+  const promise = fetch(`${postUrl}/list`).then(r => r.json());
   return {
     type: 'SET_POSTS',
     payload: promise
   };
 }
 export function updatePost(query) {
-  const postUrl = `${process.env.REACT_APP_API_URL}/posts/update`;
+  const postUrl = process.env.REACT_APP_API_URL;
   const promise = fetch(postUrl, {
     method: 'POST',
     headers: {
@@ -28,7 +28,6 @@ export function updatePost(query) {
   };
 }
 export function addSource(query) {
-  const postUrl = `${process.env.REACT_APP_API_URL}/sources/`;
   const promise = fetch(postUrl, {
     method: 'POST',
     headers: {
@@ -40,7 +39,7 @@ export function addSource(query) {
       id: query.id || '',
       fields: query.fields
     })
-  }).then(r => console.log(`server reply for update: ${r.json()}`));
+  }).then(r => r.json());
 
   return {
     type: 'ADD_SOURCE',
@@ -49,27 +48,28 @@ export function addSource(query) {
 }
 
 export function setSources() {
-  const sourcesUrl = `${process.env.REACT_APP_API_URL}/sources/list`;
-  const promise = fetch(sourcesUrl).then(r => r.json());
+  const promise = fetch(`${postUrl}/sources`).then(r => r.json());
   return {
     type: 'SET_SOURCES',
     payload: promise
   };
 }
 
-export function selectPost(post) {
+export function selectPost(postId) {
+  const promise = fetch(`${postUrl}/post/${postId}`).then(r => r.json());
   return {
     type: 'SELECT_POST',
-    payload: post
+    payload: promise
   };
 }
 
-export function selectModule(module) {
-  return {
-    type: 'SELECT_MODULE',
-    payload: module
-  };
-}
+// export function selectModule(module) {
+//   return {
+//     type: 'SELECT_MODULE',
+//     payload: module
+//   };
+// }
+
 export function sourceCreateModule(status) {
   return {
     type: 'SHOW_MODULE',
