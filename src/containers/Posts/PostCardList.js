@@ -31,7 +31,6 @@ class PostCardList extends React.Component {
           return (
             <section key={post.title}>
               <PostCard post={post} />
-              <div className={style.divider} />
             </section>
           );
         })}

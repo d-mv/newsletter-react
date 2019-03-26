@@ -49,6 +49,7 @@ class PostCard extends React.Component {
           <div>{publishedDate}</div>
           <div>~ {readTime} mins</div>
         </footer>
+        <div className={style.divider} />
       </article>
     );
   }
