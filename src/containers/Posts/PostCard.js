@@ -16,9 +16,7 @@ class PostCard extends React.Component {
     this.props.selectModule('show');
   };
   render() {
-    const text = this.props.post.text
-      .substring(0, 800)
-      .replace(/<(?:.|\n)*?>/gm, '');
+    const text = `${this.props.post.text.replace(/<(?:.|\n)*?>/gm, ' ')}...`;
     let bodyClass = '';
     if (this.props.post.read) {
       bodyClass = style.bodyRead;
