@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // Actions
 import { selectPost } from '../../actions';
-import { selectModule } from '../../actions';
+// import { selectModule } from '../../actions';
 
 import PostButton from './PostButton/PostButton';
 import dateTime from '../../modules/date_time';
@@ -14,7 +14,7 @@ class PostCard extends React.Component {
   handleClick = () => {
     async function select(selectPost, selectModule, postId) {
       selectPost(postId);
-      selectModule('show');
+      // selectModule('show');
     }
     select(this.props.selectPost, this.props.selectModule, this.props.post._id);
   };
@@ -58,7 +58,10 @@ class PostCard extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
-    { selectPost: selectPost, selectModule: selectModule },
+    {
+      selectPost: selectPost
+      // selectModule: selectModule
+    },
     dispatch
   );
 };
@@ -66,8 +69,8 @@ const mapDispatchToProps = dispatch => {
 // ! changed selectedPost to selectPost
 const mapStateToProps = state => {
   return {
-    selectPost: state.selectPost,
-    selectModule: state.selectModule
+    selectPost: state.selectPost
+    // selectModule: state.selectModule
   };
 };
 

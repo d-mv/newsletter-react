@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavMenuElement from '../../containers/NavMenu/NavMenuElement';
+import NavMenuElement from './NavMenuElement';
 import style from './NavMenu.module.scss';
 
 class NavMenu extends React.Component {

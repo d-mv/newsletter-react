@@ -39,7 +39,7 @@ export function addSource(query) {
       id: query.id || '',
       fields: query.fields
     })
-  }).then(r => console.log(`server reply for update: ${r.json()}`));
+  }).then(r => r.json());
 
   return {
     type: 'ADD_SOURCE',
@@ -48,7 +48,7 @@ export function addSource(query) {
 }
 
 export function setSources() {
-  const promise = fetch(postUrl).then(r => r.json());
+  const promise = fetch(`${postUrl}/sources`).then(r => r.json());
   return {
     type: 'SET_SOURCES',
     payload: promise
@@ -63,12 +63,13 @@ export function selectPost(postId) {
   };
 }
 
-export function selectModule(module) {
-  return {
-    type: 'SELECT_MODULE',
-    payload: module
-  };
-}
+// export function selectModule(module) {
+//   return {
+//     type: 'SELECT_MODULE',
+//     payload: module
+//   };
+// }
+
 export function sourceCreateModule(status) {
   return {
     type: 'SHOW_MODULE',

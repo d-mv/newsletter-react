@@ -12,6 +12,14 @@ import SourceCreate from './SourceCreate/SourceCreate';
 import style from './SourcesList.module.scss';
 
 class SourcesList extends React.Component {
+  state = {
+    showAddSource: false
+  };
+  toggleAddSource = () => {
+    this.setState(state => ({ showAddSource: !this.state.showAddSource }));
+    console.log(this.state.showAddSource);
+  };
+
   componentWillMount() {
     this.fetchSources();
   }
@@ -28,25 +36,24 @@ class SourcesList extends React.Component {
     this.props.setSources();
   };
 
-  addSource = () => {
-    console.log(this.props);
-    const fields = {
-      name: 'Smashing Magazine',
-      url: 'http://www.smashingmagazine.com/feed/',
-      home: 'https://www.smashingmagazine.com/articles/'
-    };
+  createSource = fields => {
     const request = { action: ['source', 'create'], fields };
     this.props.addSource(request);
   };
+
   render() {
-    console.log(this.props.sourceCreateModule);
     return (
       <section className={style.section}>
-        <div onClick={this.addSource} className={style.addSource}>
+        <div className={style.addSource} onClick={this.toggleAddSource}>
           <SourceButton type="add" />
           Add Source
         </div>
-        {this.props.sourceCreateModule ? <SourceCreate /> : null}
+        {this.state.showAddSource ? (
+          <SourceCreate
+            create={this.createSource}
+            toggle={this.toggleAddSource}
+          />
+        ) : null}
         {this.props.sources.map(source => {
           return <SourceCard source={source} key={source._id} />;
         })}
@@ -61,8 +68,8 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   return {
     sources: state.sources,
-    addSource: state.addSource,
-    sourceCreateModule: state.sourceCreateModule
+    addSource: state.addSource
+    // sourceCreateModule: state.sourceCreateModule
   };
 };
 

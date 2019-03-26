@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TitleBar from '../TitleBar/TitleBar';
-import ContentDisplay from '../../containers/ContentDisplay';
+import ContentDisplay from '../ContentDisplay';
 import NavMenu from '../NavMenu/NavMenu';
 
 class App extends React.Component {
