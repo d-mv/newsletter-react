@@ -6,24 +6,17 @@ $darkMediumGrey: #aaaaaa;
 $accent: #6d6bc4;
 
 .button {
-  // padding: 10px;
-  // transition: 0.7s;
-  // margin-left: 5px;
-  // &:hover {
-  //   color: black;
-  //   transform: scale(1.1);
-  // }
+  cursor: pointer;
 }
 
 .regular {
-  // @extend .button;
+  @extend .button;
 }
 
 .on {
-  // @extend .button;
+  @extend .button;
   color: $accent;
 }
 
 .delete {
-  // @extend .button;
 }

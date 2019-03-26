@@ -20,12 +20,7 @@ class ContentDisplay extends React.Component {
   render() {
     switch (this.props.show) {
       case 'Home':
-        return (
-          <PostCardList
-            // toggle={this.props.toggle}
-            showPost={this.setPostToShow}
-          />
-        );
+        return <PostCardList showPost={this.setPostToShow} />;
       case 'show':
         return <PostShow post={this.state.post} />;
       case 'Sources':

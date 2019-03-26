@@ -1,7 +1,12 @@
 const postUrl = process.env.REACT_APP_API_URL;
 
 export function setPosts() {
-  const promise = fetch(`${postUrl}/list`).then(r => r.json());
+  const promise = fetch(`${postUrl}/list`)
+    .then(r => r.json())
+    .catch(e => {
+      return e;
+    });
+
   return {
     type: 'SET_POSTS',
     payload: promise
