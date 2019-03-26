@@ -4,6 +4,7 @@
   "description": "The Newsletter app frontend, React.",
   "main": "index.js",
   "repository": ".",
+  "homepage": "http://melnikov.dev/newsletter-react/build",
   "author": "DM-v",
   "license": "UNLICENSED",
   "private": true,
