@@ -1,23 +1,19 @@
 import React from 'react';
-// Redux
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-// Actions
-import { selectPost } from '../../actions';
-// import { selectModule } from '../../actions';
 
 import PostButton from './PostButton/PostButton';
 import dateTime from '../../modules/date_time';
 import style from './PostCard.module.scss';
 
 class PostCard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
   handleClick = () => {
-    async function select(selectPost, selectModule, postId) {
-      selectPost(postId);
-      // selectModule('show');
-    }
-    select(this.props.selectPost, this.props.selectModule, this.props.post._id);
+    this.props.selector(this.props.post._id);
   };
+
   render() {
     const text = `${this.props.post.text.replace(/<(?:.|\n)*?>/gm, ' ')}...`;
     let bodyClass = '';
@@ -27,9 +23,8 @@ class PostCard extends React.Component {
       bodyClass = style.body;
     }
     const publishedDate = dateTime(new Date(this.props.post.published));
-    const readTime = Math.round((this.props.post.text.length / 3000) * 2);
     return (
-      <article className={bodyClass}>
+      <article className={bodyClass} key={this.props.post._id}>
         <header className={style.title} onClick={this.handleClick}>
           {this.props.post.title}
         </header>
@@ -48,7 +43,7 @@ class PostCard extends React.Component {
         />
         <footer className={style.statusLine}>
           <div>{publishedDate}</div>
-          <div>~ {readTime} mins</div>
+          <div>~ {this.props.post.readTime} mins</div>
         </footer>
         <div className={style.divider} />
       </article>
@@ -56,25 +51,4 @@ class PostCard extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {
-      selectPost: selectPost
-      // selectModule: selectModule
-    },
-    dispatch
-  );
-};
-
-// ! changed selectedPost to selectPost
-const mapStateToProps = state => {
-  return {
-    selectPost: state.selectPost
-    // selectModule: state.selectModule
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PostCard);
+export default PostCard;
