@@ -22,7 +22,7 @@ class ContentDisplay extends React.Component {
       case 'Home':
         return <PostCardList showPost={this.setPostToShow} />;
       case 'show':
-        return <PostShow post={this.state.post} />;
+        return <PostShow post={this.state.post} toggle={this.props.toggle} />;
       case 'Sources':
         return <SourcesList />;
       default:

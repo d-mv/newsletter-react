@@ -9,38 +9,38 @@ import style from './PostButton.module.scss';
 
 class PostButton extends React.Component {
   updatePost = () => {
-    let flag = '';
-    if (this.props.value) {
-      flag = false;
-    } else {
-      flag = true;
+    let action = '';
+    switch (this.props.type) {
+      case 'star':
+        action = ['post', 'update'];
+        break;
+      default:
+        action = ['post', 'delete'];
+        break;
     }
-    const query = { id: this.props.postId, fields: {} };
-    const fields = {};
-    fields[`${this.props.type}`] = flag;
-    query['fields'] = fields;
+    let fields = {};
+    fields[`${this.props.type}`] = !this.props.value;
+    const query = { id: this.props.postId, action: action, fields: fields };
     this.props.updatePost(query);
+    if (this.props.toggle) {
+      this.props.toggle('Home');
+    }
   };
 
   render() {
-    let button = '';
-    let buttonStyle = '';
+    let button = '×';
+    let buttonStyle = style.button;
     switch (this.props.type) {
       case 'star':
-        button = 'fas fa-star';
+        button = '√';
         if (this.props.value) {
           buttonStyle = style.on;
-        } else {
-          buttonStyle = style.regular;
         }
         break;
-      default:
-        button = 'far fa-trash-alt';
-        buttonStyle = style.delete;
     }
     return (
       <button className={buttonStyle} onClick={this.updatePost}>
-        <i className={button} />
+        {button}
       </button>
     );
   }

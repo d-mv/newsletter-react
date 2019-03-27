@@ -12,6 +12,7 @@ class PostShow extends React.Component {
   componentDidMount = () => {
     window.scrollTo(0, 0);
   };
+
   render() {
     let author = '';
     if (!this.props.post.author) {
@@ -20,10 +21,10 @@ class PostShow extends React.Component {
       author = `by ${this.props.post.author}`;
     }
     // const text = this.props.post.text;
-    const text = this.props.post.text
-      .replace(/(<head>.*<\/head>)/gm, '')
-      .replace(/(<style>.*<\/style>)/gm, '')
-      .replace(/(<script>.*<\/script>)/gm, '');
+    // const text = this.props.post.text
+    //   .replace(/(<head>.*<\/head>)/gm, '')
+    //   .replace(/(<style>.*<\/style>)/gm, '')
+    //   .replace(/(<script>.*<\/script>)/gm, '');
     const publishedDate = dateTime(new Date(this.props.post.published));
     const parsedDate = dateTime(new Date(this.props.post.parsed));
     // const pages = Math.round(this.props.post.text.length / 3000);
@@ -40,12 +41,16 @@ class PostShow extends React.Component {
               value={this.props.post.star}
               postId={this.props.post._id}
             />
-            <PostButton type="delete" />
+            <PostButton
+              type="delete"
+              postId={this.props.post._id}
+              toggle={this.props.toggle}
+            />
           </div>
         </div>
         <section
           className={style.text}
-          dangerouslySetInnerHTML={{ __html: text }}
+          dangerouslySetInnerHTML={{ __html: this.props.post.text }}
         />
         <div className={style.divider} />
         <footer className={style.statusLine}>
