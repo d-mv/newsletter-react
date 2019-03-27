@@ -1,4 +1,4 @@
-const postUrl = 'https://the-newsletter-app-back.herokuapp.com/api/list';
+const postUrl = 'https://the-newsletter-app-back.herokuapp.com/api';
 
 export function setPosts() {
   const promise = fetch(`${postUrl}/list`)
