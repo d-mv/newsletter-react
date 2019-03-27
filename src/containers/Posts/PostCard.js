@@ -24,7 +24,7 @@ class PostCard extends React.Component {
     }
     const publishedDate = dateTime(new Date(this.props.post.published));
     return (
-      <article className={bodyClass} key={this.props.post._id}>
+      <section className={bodyClass} key={this.props.post._id}>
         <header className={style.title} onClick={this.handleClick}>
           {this.props.post.title}
         </header>
@@ -46,7 +46,7 @@ class PostCard extends React.Component {
           <div>~ {this.props.post.readTime} mins</div>
         </footer>
         <div className={style.divider} />
-      </article>
+      </section>
     );
   }
 }

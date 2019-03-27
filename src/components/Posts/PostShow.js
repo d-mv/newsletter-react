@@ -16,7 +16,11 @@ class PostShow extends React.Component {
     } else {
       author = `by ${this.props.post.author}`;
     }
-    const text = this.props.post.text;
+    // const text = this.props.post.text;
+    const text = this.props.post.text
+      .replace(/(<head>.*<\/head>)/gm, '')
+      .replace(/(<style>.*<\/style>)/gm, '')
+      .replace(/(<script>.*<\/script>)/gm, '');
     const publishedDate = dateTime(new Date(this.props.post.published));
     const parsedDate = dateTime(new Date(this.props.post.parsed));
     // const pages = Math.round(this.props.post.text.length / 3000);
