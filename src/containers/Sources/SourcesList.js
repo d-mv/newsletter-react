@@ -7,7 +7,7 @@ import { addSource } from '../../actions';
 // import { sourceCreateModule } from "../../actions";
 
 import SourceCard from '../../components/Sources/SourceCard';
-import SourceButton from './SourceButton/SourceButton';
+import SourceButton from '../../components/Sources/SourceButton/SourceButton';
 import SourceCreate from './SourceCreate/SourceCreate';
 import style from './SourcesList.module.scss';
 

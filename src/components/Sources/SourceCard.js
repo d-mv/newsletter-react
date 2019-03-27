@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SourceButton from '../../containers/Sources/SourceButton/SourceButton';
+import SourceButton from './SourceButton/SourceButton';
 import style from './SourceCard.module.scss';
 
 class SourceCard extends React.Component {

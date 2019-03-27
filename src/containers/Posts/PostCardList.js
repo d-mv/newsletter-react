@@ -16,6 +16,7 @@ class PostCardList extends React.Component {
 
   componentDidMount() {
     this.refresher = setInterval(this.fetchMessages, 5000);
+    window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {

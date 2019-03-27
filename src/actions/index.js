@@ -20,12 +20,12 @@ export function updatePost(query) {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      id: query.id,
-      action: 'update',
-      fields: query.fields
-    })
-  }).then(r => console.log(`server reply for update: ${r.json()}`));
+    body: JSON.stringify({ query })
+  })
+    .then(r => r.json())
+    .catch(e => {
+      return e;
+    });
 
   return {
     type: 'UPDATE_POST',
