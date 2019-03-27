@@ -9,6 +9,9 @@ class PostShow extends React.Component {
     window.open(this.props.post.url, '_blank');
   };
 
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+  };
   render() {
     let author = '';
     if (!this.props.post.author) {
