@@ -1,11 +1,7 @@
 $lightGrey: #d3d3d3;
-
 $silverSand: #c4c4c4;
-
 $dimGrey: #6b6b6b;
-
 $arsenic: #444444;
-
 $darkMediumGrey: #aaaaaa;
 $accent: #6d6bc4;
 
@@ -20,17 +16,10 @@ $accent: #6d6bc4;
   max-width: 1000px;
 }
 
-section {
-  article {
-    header {
-      display: none;
-    }
-  }
-}
-
 .title {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: italic;
+  line-height: 1.8rem;
 }
 
 .secondLine {
@@ -39,7 +28,7 @@ section {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-content: center;
-  padding-right: 10px;
+  margin-bottom: -0.6rem;
 }
 
 .author {
@@ -92,8 +81,15 @@ section {
   iframe,
   figcaption,
   .signature,
-  .book-cta {
+  .book-cta,
+  .border-bottom {
     display: none;
+  }
+
+  article {
+    header {
+      display: none;
+    }
   }
 
   br {

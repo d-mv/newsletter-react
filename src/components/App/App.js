@@ -14,7 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <main>
-        <TitleBar />
+        <TitleBar toggle={this.showModule} />
         <ContentDisplay show={this.state.module} toggle={this.showModule} />
         <NavMenu show={this.showModule} />
       </main>
