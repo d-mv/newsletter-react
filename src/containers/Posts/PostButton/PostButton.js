@@ -37,6 +37,8 @@ class PostButton extends React.Component {
           buttonStyle = style.on;
         }
         break;
+      default:
+        break;
     }
     return (
       <button className={buttonStyle} onClick={this.updatePost}>
