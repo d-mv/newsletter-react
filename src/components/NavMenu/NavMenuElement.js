@@ -11,7 +11,7 @@ class NavMenuElement extends React.Component {
   render() {
     let elementStyle = style.button;
     let button = this.props.name;
-    if (button === '➤') {
+    if (button === '⋮') {
       if (this.props.options.menuStatus) {
         elementStyle = style.buttonArrowOpen;
       } else {

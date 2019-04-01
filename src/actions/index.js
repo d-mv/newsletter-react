@@ -41,17 +41,40 @@ export function addSource(query) {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      action: query.action,
-      id: query.id || '',
-      fields: query.fields
-    })
-  }).then(r => r.json());
+    body: JSON.stringify({ query })
+  })
+    .then(r => r.json())
+    .catch(e => {
+      return e;
+    });
 
   return {
     type: 'ADD_SOURCE',
     payload: promise
   };
+}
+export function deleteSource(query) {
+  if (query.action && query.id) {
+    const promise = fetch(postUrl, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ query })
+    })
+      .then(r => r.json())
+      .catch(e => {
+        return e;
+      });
+
+    return {
+      type: 'DELETE_SOURCE',
+      payload: promise
+    };
+  } else {
+    return 'Missing action and/or id';
+  }
 }
 
 export function setSources() {

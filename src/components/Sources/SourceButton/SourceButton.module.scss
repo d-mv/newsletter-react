@@ -1,0 +1,41 @@
+$lightGrey: #d3d3d3;
+$silverSand: #c4c4c4;
+$dimGrey: #6b6b6b;
+$arsenic: #444444;
+$darkMediumGrey: #aaaaaa;
+$accent: #6d6bc4;
+
+.button {
+  padding: 0.7rem 0.7rem;
+  color: $arsenic;
+
+  &:hover {
+    transform: scale(1.4);
+  }
+}
+
+.addSource {
+  font-family: 'Aleo';
+
+  margin: {
+    top: 0;
+    bottom: 0.5rem;
+    left: auto;
+    right: auto;
+  }
+
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 0.5rem 2rem;
+
+  &:hover {
+    background-color: $silverSand;
+  }
+
+  &:active {
+    color: white;
+    background-color: $arsenic;
+  }
+}

@@ -12,7 +12,7 @@ import sourcesReducer from './reducers/sources_reducer';
 import addSourceReducer from './reducers/add_source_reducer';
 import updatePostReducer from './reducers/update_post_reducer';
 import selectPostReducer from './reducers/select_post_reducer';
-// import selectModuleReducer from './reducers/select_module_reducer';
+import deleteSourceReducer from './reducers/delete_source_reducer';
 import sourceCreateModuleReducer from './reducers/source_create_module_reducer.js';
 
 import WebFont from 'webfontloader';
@@ -35,8 +35,8 @@ const initialState = {
   addSource: '',
   updatePost: '',
   selectPost: '',
-  // selectModule: 'Home',
-  sourceCreateModule: true
+  sourceCreateModule: true,
+  deleteSource: ''
 };
 
 // Define reducers
@@ -46,8 +46,8 @@ const reducers = combineReducers({
   addSource: addSourceReducer,
   updatePost: updatePostReducer,
   selectPost: selectPostReducer,
-  // selectModule: selectModuleReducer,
-  sourceCreateModule: sourceCreateModuleReducer
+  sourceCreateModule: sourceCreateModuleReducer,
+  deleteSource: deleteSourceReducer
 });
 // Add logger
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
