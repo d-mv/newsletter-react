@@ -9,27 +9,21 @@ class NavMenuElement extends React.Component {
   };
 
   render() {
-    console.log(this.props);
-    if (this.props.name === 'arrow') {
-      const classStyle = 'fas fa-chevron-left';
-      return (
-        <section
-          className={style.elementArrow}
-          id={this.props.name}
-          onClick={this.handleClick}
-        >
-          <div className={style.buttonArrow}>
-            <i className={classStyle} />
-          </div>
-        </section>
-      );
-    } else {
-      return (
-        <section className={style.element} onClick={this.handleClick}>
-          <div className={style.button}>{this.props.name}</div>
-        </section>
-      );
+    let elementStyle = style.button;
+    let button = this.props.name;
+    if (button === '➤') {
+      if (this.props.options.menuStatus) {
+        elementStyle = style.buttonArrowOpen;
+      } else {
+        elementStyle = style.buttonArrow;
+      }
     }
+    console.log(this.props);
+    return (
+      <div onClick={this.handleClick} className={elementStyle}>
+        {button}
+      </div>
+    );
   }
 }
 

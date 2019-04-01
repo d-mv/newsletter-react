@@ -11,7 +11,7 @@ class NavMenu extends React.Component {
     if (this.props.options.menuStatus) menuStyle = style.menuOpen;
     return (
       <nav className={menuStyle}>
-        <NavMenuElement options={this.props.options} name="arrow" />
+        <NavMenuElement options={this.props.options} name="➤" />
         <NavMenuElement options={this.props.options} name="Home" />
         <NavMenuElement options={this.props.options} name="Sources" />
       </nav>
