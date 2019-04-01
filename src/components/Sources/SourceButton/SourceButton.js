@@ -1,21 +1,28 @@
 import React from 'react';
 
+import style from './SourceButton.module.scss';
+
 class SourceButton extends React.Component {
+  handleClick = () => {
+    if (this.props.type === 'add') this.props.show('');
+    if (this.props.type === 'delete') this.props.sourceDelete('');
+  };
   render() {
-    let button = '';
+    let button = '+ Add Source';
+    let buttonStyle = style.button;
     switch (this.props.type) {
       case 'edit':
-        button = 'fas fa-pencil-alt';
+        button = '✎';
         break;
       case 'add':
-        button = 'fas fa-plus';
+        buttonStyle = style.addSource;
         break;
       default:
-        button = 'far fa-trash-alt';
+        button = '⌦';
     }
     return (
-      <button>
-        <i className={button} />
+      <button className={buttonStyle} onClick={this.handleClick}>
+        {button}
       </button>
     );
   }

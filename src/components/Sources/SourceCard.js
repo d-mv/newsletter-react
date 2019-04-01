@@ -4,7 +4,9 @@ import SourceButton from './SourceButton/SourceButton';
 import style from './SourceCard.module.scss';
 
 class SourceCard extends React.Component {
-  goHome() {}
+  sourceDelete = () => {
+    this.props.sourceDelete(this.props.source._id);
+  };
   render() {
     return (
       <section className={style.section}>
@@ -16,7 +18,7 @@ class SourceCard extends React.Component {
         </section>
         <section className={style.buttonsWrapper}>
           <SourceButton type="edit" postId={this.props.source._id} />
-          <SourceButton type="delete" />
+          <SourceButton type="delete" sourceDelete={this.sourceDelete} />
         </section>
       </section>
     );
