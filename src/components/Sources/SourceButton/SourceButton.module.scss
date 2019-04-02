@@ -1,13 +1,6 @@
-$lightGrey: #d3d3d3;
-$silverSand: #c4c4c4;
-$dimGrey: #6b6b6b;
-$arsenic: #444444;
-$darkMediumGrey: #aaaaaa;
-$accent: #6d6bc4;
-
 .button {
   padding: 0.7rem 0.7rem;
-  color: $arsenic;
+  color: var(--arsenic);
 
   &:hover {
     transform: scale(1.4);
@@ -31,12 +24,12 @@ $accent: #6d6bc4;
   padding: 0.5rem 2rem;
 
   &:hover {
-    background-color: $silverSand;
+    background-color: var(--silverSand);
   }
 
   &:active {
     color: white;
-    background-color: $arsenic;
+    background-color: var(--silverSand);
   }
 }
 

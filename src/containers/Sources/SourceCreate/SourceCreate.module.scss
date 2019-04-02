@@ -1,10 +1,3 @@
-$lightGrey: #d3d3d3;
-$silverSand: #c4c4c4;
-$dimGrey: #6b6b6b;
-$arsenic: #444444;
-$darkMediumGrey: #aaaaaa;
-$accent: #6d6bc4;
-
 @keyframes createForm {
   from {
     height: 0;
@@ -28,7 +21,7 @@ $accent: #6d6bc4;
 .createForm {
   width: 70%;
   margin: 0 auto;
-  background-color: $darkMediumGrey;
+  background-color: var(--darkMediumGrey);
   animation: createForm 0.7s linear;
   text-align: center;
 
@@ -63,19 +56,19 @@ $accent: #6d6bc4;
       margin: 0 10px;
       font-family: 'IBM Plex Mono';
       font-weight: 300;
-      color: $arsenic;
+      color: var(--arsenic);
       font-size: 18px;
-      font-family: Aleo;
+      // font-family: Aleo;
 
       border: {
         top: none;
         left: none;
         right: none;
-        bottom: 1px solid $dimGrey;
+        bottom: 1px solid var(--dimGrey);
       }
 
       &:focus {
-        border-bottom: 1px solid $accent;
+        border-bottom: 1px solid var(--accent);
       }
     }
   }
@@ -84,8 +77,8 @@ $accent: #6d6bc4;
     margin: 10px auto;
     animation: createFields 2s linear;
     padding: 10px;
-    background-color: $arsenic;
-    color: white;
+    background-color: var(--arsenic);
+    color: var(--light);
     font-size: 16px;
     font-family: Aleo;
     letter-spacing: 1px;
@@ -93,7 +86,7 @@ $accent: #6d6bc4;
 
     &:hover {
       transform: scale(1.05);
-      color: white;
+      color: var(--light);
     }
   }
 }
