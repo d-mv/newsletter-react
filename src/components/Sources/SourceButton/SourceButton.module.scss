@@ -39,3 +39,7 @@ $accent: #6d6bc4;
     background-color: $arsenic;
   }
 }
+
+.refreshSource {
+  @extend .addSource;
+}

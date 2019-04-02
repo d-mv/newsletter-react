@@ -5,6 +5,10 @@ $arsenic: #444444;
 $darkMediumGrey: #aaaaaa;
 $accent: #6d6bc4;
 
+:root {
+  --arsenic: #444444;
+}
+
 body {
   font-family: 'Aleo';
   background-color: $lightGrey !important;

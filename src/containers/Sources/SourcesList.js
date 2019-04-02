@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { setSources } from '../../actions';
 import { addSource } from '../../actions';
 import { deleteSource } from '../../actions';
+import { refreshPosts } from '../../actions';
 
 import SourceCard from '../../components/Sources/SourceCard';
 import SourceButton from '../../components/Sources/SourceButton/SourceButton';
@@ -59,14 +60,27 @@ class SourcesList extends React.Component {
     this.fetchSources();
   };
 
+  handleRefreshPosts = () => {
+    this.props.refreshPosts();
+  };
+
   render() {
     return (
       <section className={style.section}>
-        <SourceButton
-          type="add"
-          show={this.toggleAddSource}
-          name="Add Source"
-        />
+        <div className={style.buttonsWrapper}>
+          {this.props.sources.length > 0 ? (
+            <SourceButton
+              type="refresh"
+              refresh={this.handleRefreshPosts}
+              name="Refresh"
+            />
+          ) : null}
+          <SourceButton
+            type="add"
+            show={this.toggleAddSource}
+            name="Add Source"
+          />
+        </div>
         {this.state.showAddSource ? (
           <SourceCreate
             create={this.createSource}
@@ -90,14 +104,18 @@ class SourcesList extends React.Component {
   }
 }
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ setSources, addSource, deleteSource }, dispatch);
+  return bindActionCreators(
+    { setSources, addSource, deleteSource, refreshPosts },
+    dispatch
+  );
 };
 
 const mapStateToProps = state => {
   return {
     sources: state.sources,
     addSource: state.addSource,
-    deleteSource: state.deleteSource
+    deleteSource: state.deleteSource,
+    refreshPosts: refreshPosts
   };
 };
 

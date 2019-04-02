@@ -25,7 +25,8 @@ $accent: #6d6bc4;
 
   &:hover {
     background-color: $silverSand;
-    color: $arsenic;
+    // color: $arsenic;
+    color: var(--arsenic);
   }
 }
 
