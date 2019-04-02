@@ -153,8 +153,31 @@
 .statusLine {
   display: flex;
   justify-content: space-between;
-
-  font-size: 14px;
   font-weight: 300;
   padding: 5px 0;
+  font-size: 80%;
+
+  @media (max-width: 379px) {
+    display: none;
+  }
+
+  @media (min-width: 380px) and (max-width: 414px) {
+    font-size: 60%;
+  }
+
+  @media (min-width: 415px) and (max-width: 465px) {
+    font-size: 65%;
+  }
+
+  @media (min-width: 466px) and (max-width: 499px) {
+    font-size: 70%;
+  }
+
+  @media (min-width: 500px) and (max-width: 549px) {
+    font-size: 75%;
+  }
+
+  @media (min-width: 550px) {
+    font-size: 80%;
+  }
 }

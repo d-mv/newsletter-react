@@ -9,9 +9,21 @@
 }
 
 .title {
+  @media (max-width: 302px) {
+    font-size: 24pt;
+  }
+
+  @media (min-width: 303px) and (max-width: 340px) {
+    font-size: 26pt;
+  }
+
+  @media (min-width: 341px) {
+    font-size: 30pt;
+  }
+
   font-weight: 700;
   margin: 0;
-  font-size: 30pt;
+
   height: 47px;
   cursor: pointer;
 }
