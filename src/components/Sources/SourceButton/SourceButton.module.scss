@@ -7,7 +7,19 @@
   }
 }
 
+.buttonDims {
+  @media (max-width: 599px) {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
+  }
+
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
 .addSource {
+  @extend .buttonDims;
   font-family: 'Aleo';
 
   margin: {
@@ -18,10 +30,8 @@
   }
 
   text-align: center;
-  font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
-  padding: 0.5rem 2rem;
 
   &:hover {
     background-color: var(--silverSand);

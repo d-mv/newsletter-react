@@ -9,7 +9,18 @@
 }
 
 .createForm {
-  width: 70%;
+  @media (max-width: 599px) {
+    padding: {
+      top: 20px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+    }
+
+    background-color: none;
+  }
+
+  width: 80%;
   margin: 0 auto;
   background-color: var(--darkMediumGrey);
   animation: openForm 0.7s linear;
@@ -22,6 +33,10 @@
   }
 
   label {
+    @media (max-width: 599px) {
+      font-size: 80%;
+    }
+
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-areas: 'title' 'field';
@@ -33,12 +48,20 @@
     margin: 15px auto;
 
     .labelTitle {
+      @media (max-width: 599px) {
+        padding-top: 2px;
+      }
+
       grid-area: 'title';
       padding-top: 3px;
       text-align: right;
     }
 
     input {
+      @media (max-width: 599px) {
+        font-size: 100%;
+      }
+
       grid-area: 'field';
       background: none;
       margin: 0 10px;

@@ -37,14 +37,16 @@ class SourceCreate extends React.Component {
       url: event.target[1].value,
       home: event.target[2].value
     };
-    const newValues =
-      values.name === this.props.source.name &&
-      values.url === this.props.source.url &&
-      values.home === this.props.source.home;
-    if (this.props.mode === 'edit' && !newValues) {
-      const query = { id: this.props.source._id, values: values };
-      this.props.toggleEdit('');
-      this.props.updateSource(query);
+    if (this.props.mode === 'edit') {
+      const newValues =
+        values.name === this.props.source.name &&
+        values.url === this.props.source.url &&
+        values.home === this.props.source.home;
+      if (!newValues) {
+        const query = { id: this.props.source._id, values: values };
+        this.props.toggleEdit('');
+        this.props.updateSource(query);
+      }
     } else if (this.props.mode === 'create') {
       this.props.toggle();
       this.props.create(values);
@@ -52,6 +54,7 @@ class SourceCreate extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <form onSubmit={this.handleSubmit} className={style.createForm}>
         <label>
