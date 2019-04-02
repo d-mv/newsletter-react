@@ -4,7 +4,7 @@
   "description": "The Newsletter app frontend, React.",
   "main": "index.js",
   "repository": ".",
-  "homepage": "http://melnikov.dev/newsletter-react/build",
+  "homepage": "https://the-newsletter-app-back.herokuapp.com/app/",
   "author": "DM-v",
   "license": "UNLICENSED",
   "private": true,

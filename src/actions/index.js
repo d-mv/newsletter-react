@@ -1,6 +1,6 @@
 const postUrl =
   process.env.REACT_APP_API_URL ||
-  'http://the-newsletter-app-back.herokuapp.com/api';
+  'https://the-newsletter-app-back.herokuapp.com/api';
 
 export function setPosts() {
   const promise = fetch(`${postUrl}/list`)
