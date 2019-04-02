@@ -6,6 +6,7 @@ import { setSources } from '../../actions';
 import { addSource } from '../../actions';
 import { deleteSource } from '../../actions';
 import { refreshPosts } from '../../actions';
+import { updateSource } from '../../actions';
 
 import SourceCard from '../../components/Sources/SourceCard';
 import SourceButton from '../../components/Sources/SourceButton/SourceButton';
@@ -15,11 +16,15 @@ import style from './SourcesList.module.scss';
 class SourcesList extends React.Component {
   state = {
     showAddSource: false,
+    showEditSource: false,
     message: ''
   };
 
   toggleAddSource = () => {
     this.setState(state => ({ showAddSource: !this.state.showAddSource }));
+  };
+  toggleEditSource = e => {
+    this.setState(state => ({ showEditSource: !this.state.showEditSource }));
   };
 
   changeMessage = message => {
@@ -54,6 +59,22 @@ class SourcesList extends React.Component {
     this.props.addSource(request);
   };
 
+  updateSource = fields => {
+    if (
+      fields.values.name === '' ||
+      fields.values.home === '' ||
+      fields.values.url === '' ||
+      fields.values.id === ''
+    )
+      this.changeMessage('Not enough info. Source not created.');
+    const request = {
+      action: ['source', 'update'],
+      id: fields.id,
+      fields: fields.values
+    };
+    this.props.updateSource(request);
+  };
+
   sourceDelete = id => {
     const request = { action: ['source', 'delete'], id: id };
     this.props.deleteSource(request);
@@ -83,6 +104,7 @@ class SourcesList extends React.Component {
         </div>
         {this.state.showAddSource ? (
           <SourceCreate
+            mode="create"
             create={this.createSource}
             toggle={this.toggleAddSource}
           />
@@ -96,6 +118,9 @@ class SourcesList extends React.Component {
               source={source}
               key={source._id}
               sourceDelete={this.sourceDelete}
+              showEdit={this.state.showEditSource}
+              toggleEdit={this.toggleEditSource}
+              updateSource={this.updateSource}
             />
           );
         })}
@@ -105,7 +130,7 @@ class SourcesList extends React.Component {
 }
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
-    { setSources, addSource, deleteSource, refreshPosts },
+    { setSources, addSource, deleteSource, refreshPosts, updateSource },
     dispatch
   );
 };
@@ -115,7 +140,8 @@ const mapStateToProps = state => {
     sources: state.sources,
     addSource: state.addSource,
     deleteSource: state.deleteSource,
-    refreshPosts: refreshPosts
+    refreshPosts: refreshPosts,
+    updateSource: updateSource
   };
 };
 

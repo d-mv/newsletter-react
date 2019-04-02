@@ -33,6 +33,25 @@ export function updatePost(query) {
     payload: promise
   };
 }
+export function updateSource(query) {
+  const promise = fetch(postUrl, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ query })
+  })
+    .then(r => r.json())
+    .catch(e => {
+      return e;
+    });
+
+  return {
+    type: 'UPDATE_SOURCE',
+    payload: promise
+  };
+}
 export function refreshPosts() {
   const promise = fetch(postUrl, {
     method: 'POST',

@@ -18,7 +18,6 @@ class NavMenuElement extends React.Component {
         elementStyle = style.buttonArrow;
       }
     }
-    console.log(this.props);
     return (
       <div onClick={this.handleClick} className={elementStyle}>
         {button}

@@ -1,20 +1,10 @@
-@keyframes createForm {
+@keyframes openForm {
   from {
-    height: 0;
+    transform: scale(0);
   }
 
   to {
-    height: 100%;
-  }
-}
-
-@keyframes createFields {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -22,8 +12,7 @@
   width: 70%;
   margin: 0 auto;
   background-color: var(--darkMediumGrey);
-  animation: createForm 0.7s linear;
-  text-align: center;
+  animation: openForm 0.7s linear;
 
   padding: {
     top: 20px;
@@ -33,7 +22,6 @@
   }
 
   label {
-    animation: createFields 0.7s linear;
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-areas: 'title' 'field';
@@ -54,11 +42,10 @@
       grid-area: 'field';
       background: none;
       margin: 0 10px;
-      font-family: 'IBM Plex Mono';
       font-weight: 300;
       color: var(--arsenic);
       font-size: 18px;
-      // font-family: Aleo;
+      font-family: Aleo;
 
       border: {
         top: none;
@@ -82,11 +69,14 @@
     font-size: 16px;
     font-family: Aleo;
     letter-spacing: 1px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 
     &:hover {
       transform: scale(1.05);
       color: var(--light);
     }
   }
+}
+
+.center {
+  text-align: center;
 }

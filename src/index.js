@@ -11,6 +11,7 @@ import postsReducer from './reducers/posts_reducer';
 import sourcesReducer from './reducers/sources_reducer';
 import addSourceReducer from './reducers/add_source_reducer';
 import updatePostReducer from './reducers/update_post_reducer';
+import updateSourceReducer from './reducers/update_source_reducer';
 import refreshPostsReducer from './reducers/refresh_posts_reducer';
 import selectPostReducer from './reducers/select_post_reducer';
 import deleteSourceReducer from './reducers/delete_source_reducer';
@@ -48,6 +49,7 @@ const reducers = combineReducers({
   addSource: addSourceReducer,
   selectPost: selectPostReducer,
   updatePost: updatePostReducer,
+  updateSource: updateSourceReducer,
   deleteSource: deleteSourceReducer,
   refreshPostsReducer: refreshPostsReducer,
   sourceCreateModule: sourceCreateModuleReducer

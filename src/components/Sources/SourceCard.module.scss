@@ -1,3 +1,9 @@
+.sectionWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
 .section {
   width: 80%;
   margin: 0.2rem auto;
