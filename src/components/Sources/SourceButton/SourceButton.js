@@ -10,14 +10,14 @@ class SourceButton extends React.Component {
     if (this.props.type === 'edit') this.props.toggleEdit('');
   };
   render() {
-    let button = '+ Add Source';
+    let button = 'Add Source';
     let buttonStyle = style.button;
     switch (this.props.type) {
       case 'edit':
         button = '✎';
         break;
       case 'refresh':
-        button = '↺ Refresh';
+        button = 'Refresh';
         buttonStyle = style.refreshSource;
         break;
       case 'add':

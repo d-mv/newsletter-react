@@ -10,6 +10,10 @@
 }
 
 .title {
+  @media (max-width: 599px) {
+    font-size: 150%;
+  }
+
   font-size: 1.5rem;
   font-style: italic;
   line-height: 1.8rem;
@@ -28,6 +32,7 @@
   font-weight: 300;
   font-style: italic;
   padding-top: 10px;
+  font-size: 100%;
 }
 
 .buttonsWrapper {
@@ -36,7 +41,8 @@
 }
 
 .text {
-  font-size: 18px;
+  font-size: 110%;
+  font-size: 110%;
   line-height: 25px;
   margin: 0 auto;
   width: 100%;

@@ -28,7 +28,7 @@ class PostButton extends React.Component {
   };
 
   render() {
-    let button = '×';
+    let button = '⊗';
     let buttonStyle = style.button;
     switch (this.props.type) {
       case 'star':
