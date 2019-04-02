@@ -15,7 +15,6 @@ export function setPosts() {
   };
 }
 export function updatePost(query) {
-  const postUrl = process.env.REACT_APP_API_URL;
   const promise = fetch(postUrl, {
     method: 'POST',
     headers: {
@@ -31,6 +30,48 @@ export function updatePost(query) {
 
   return {
     type: 'UPDATE_POST',
+    payload: promise
+  };
+}
+export function updateSource(query) {
+  const promise = fetch(postUrl, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ query })
+  })
+    .then(r => r.json())
+    .catch(e => {
+      return e;
+    });
+
+  return {
+    type: 'UPDATE_SOURCE',
+    payload: promise
+  };
+}
+export function refreshPosts() {
+  const promise = fetch(postUrl, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: {
+        action: ['post', 'refresh']
+      }
+    })
+  })
+    .then(r => r.json())
+    .catch(e => {
+      return e;
+    });
+
+  return {
+    type: 'REFRESH_POSTS',
     payload: promise
   };
 }
@@ -63,7 +104,8 @@ export function deleteSource(query) {
       },
       body: JSON.stringify({ query })
     })
-      .then(r => r.json())
+      .then(r => r)
+      // r.json())
       .catch(e => {
         return e;
       });
@@ -92,13 +134,6 @@ export function selectPost(postId) {
     payload: promise
   };
 }
-
-// export function selectModule(module) {
-//   return {
-//     type: 'SELECT_MODULE',
-//     payload: module
-//   };
-// }
 
 export function sourceCreateModule(status) {
   return {

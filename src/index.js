@@ -11,6 +11,8 @@ import postsReducer from './reducers/posts_reducer';
 import sourcesReducer from './reducers/sources_reducer';
 import addSourceReducer from './reducers/add_source_reducer';
 import updatePostReducer from './reducers/update_post_reducer';
+import updateSourceReducer from './reducers/update_source_reducer';
+import refreshPostsReducer from './reducers/refresh_posts_reducer';
 import selectPostReducer from './reducers/select_post_reducer';
 import deleteSourceReducer from './reducers/delete_source_reducer';
 import sourceCreateModuleReducer from './reducers/source_create_module_reducer.js';
@@ -36,7 +38,8 @@ const initialState = {
   updatePost: '',
   selectPost: '',
   sourceCreateModule: true,
-  deleteSource: ''
+  deleteSource: '',
+  refreshPostsReducer: ''
 };
 
 // Define reducers
@@ -44,10 +47,12 @@ const reducers = combineReducers({
   posts: postsReducer,
   sources: sourcesReducer,
   addSource: addSourceReducer,
-  updatePost: updatePostReducer,
   selectPost: selectPostReducer,
-  sourceCreateModule: sourceCreateModuleReducer,
-  deleteSource: deleteSourceReducer
+  updatePost: updatePostReducer,
+  updateSource: updateSourceReducer,
+  deleteSource: deleteSourceReducer,
+  refreshPostsReducer: refreshPostsReducer,
+  sourceCreateModule: sourceCreateModuleReducer
 });
 // Add logger
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

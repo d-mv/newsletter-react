@@ -5,11 +5,21 @@ import style from './SourceCreate.module.scss';
 class SourceCreate extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      url: '',
-      homepage: ''
-    };
+
+    if (props.source) {
+      this.state = {
+        name: props.source.name,
+        url: props.source.url,
+        home: props.source.home
+      };
+    } else {
+      this.state = {
+        name: '',
+        url: '',
+        home: ''
+      };
+    }
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,12 +37,21 @@ class SourceCreate extends React.Component {
       url: event.target[1].value,
       home: event.target[2].value
     };
-    this.props.toggle();
-    this.props.create(values);
+    const newValues =
+      values.name === this.props.source.name &&
+      values.url === this.props.source.url &&
+      values.home === this.props.source.home;
+    if (this.props.mode === 'edit' && !newValues) {
+      const query = { id: this.props.source._id, values: values };
+      this.props.toggleEdit('');
+      this.props.updateSource(query);
+    } else if (this.props.mode === 'create') {
+      this.props.toggle();
+      this.props.create(values);
+    }
   }
-  render() {
-    console.log(this.props);
 
+  render() {
     return (
       <form onSubmit={this.handleSubmit} className={style.createForm}>
         <label>
@@ -63,14 +82,16 @@ class SourceCreate extends React.Component {
             onChange={this.handleChange}
           />
         </label>
-        <button
-          className={style.submit}
-          as="input"
-          type="submit"
-          value="Submit"
-        >
-          Create
-        </button>
+        <div className={style.center}>
+          <button
+            className={style.submit}
+            as="input"
+            type="submit"
+            value="Submit"
+          >
+            Create
+          </button>
+        </div>
       </form>
     );
   }

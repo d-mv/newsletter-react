@@ -1,10 +1,9 @@
-$lightGrey: #d3d3d3;
-$silverSand: #c4c4c4;
-$dimGrey: #6b6b6b;
-$arsenic: #444444;
-$darkMediumGrey: #aaaaaa;
-$accent: #6d6bc4;
-
+.sectionWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
 .section {
   width: 80%;
   margin: 0.2rem auto;
@@ -13,7 +12,7 @@ $accent: #6d6bc4;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  background-color: $silverSand;
+  background-color: var(--silverSand);
   transition: 0.3s;
 }
 

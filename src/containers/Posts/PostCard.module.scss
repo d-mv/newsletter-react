@@ -1,10 +1,3 @@
-$lightGrey: #d3d3d3;
-$silverSand: #c4c4c4;
-$dimGrey: #6b6b6b;
-$arsenic: #444444;
-$darkMediumGrey: #aaaaaa;
-$accent: #6d6bc4;
-
 .body {
   padding: 10px;
 }
@@ -17,7 +10,7 @@ $accent: #6d6bc4;
 
 .bodyRead {
   @extend .body;
-  color: $dimGrey;
+  color: var(--dimGrey);
 }
 
 .title {
@@ -52,7 +45,7 @@ $accent: #6d6bc4;
 }
 
 .divider {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid var(--arsenic);
   height: 2px;
   width: 80%;
 

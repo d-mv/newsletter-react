@@ -6,6 +6,8 @@ class SourceButton extends React.Component {
   handleClick = () => {
     if (this.props.type === 'add') this.props.show('');
     if (this.props.type === 'delete') this.props.sourceDelete('');
+    if (this.props.type === 'refresh') this.props.refresh('');
+    if (this.props.type === 'edit') this.props.toggleEdit('');
   };
   render() {
     let button = '+ Add Source';
@@ -13,6 +15,10 @@ class SourceButton extends React.Component {
     switch (this.props.type) {
       case 'edit':
         button = '✎';
+        break;
+      case 'refresh':
+        button = '↺ Refresh';
+        buttonStyle = style.refreshSource;
         break;
       case 'add':
         buttonStyle = style.addSource;

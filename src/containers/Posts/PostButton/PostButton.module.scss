@@ -1,29 +1,21 @@
-$lightGrey: #d3d3d3;
-$silverSand: #c4c4c4;
-$dimGrey: #6b6b6b;
-$arsenic: #444444;
-$darkMediumGrey: #aaaaaa;
-$accent: #914992;
-// $accent: #6d6bc4;
-
 .button {
   cursor: pointer;
   font-family: 'Aleo';
   font-weight: 700;
   font-size: 1.1rem;
-  color: #aaaaaa;
+  color: var(--darkMediumGrey);
 
   &:hover {
     transform: scale(1.5);
-    color: $accent;
+    color: var(--accent);
   }
 }
 
 .on {
   @extend .button;
-  color: $accent;
+  color: var(--accent);
 
   &:hover {
-    color: #aaaaaa;
+    color: var(--darkMediumGrey);
   }
 }
