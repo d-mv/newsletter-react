@@ -6,6 +6,8 @@ import { setPosts } from '../../actions';
 import { selectPost } from '../../actions';
 
 import PostCard from '../../components/Posts/PostCard';
+import Divider from '../../components/Divider/Divider';
+
 import style from './PostCardList.module.scss';
 import Error from '../../components/Error/Error';
 
@@ -37,14 +39,17 @@ class PostCardList extends React.Component {
       return <Error message={message} />;
     }
     return (
-      <div className={style.content}>
+      <div className={style.contentFlex}>
         {this.props.posts.map(post => {
           return (
-            <PostCard
-              selector={this.selectPostToShow}
-              post={post}
-              key={post._id}
-            />
+            <div>
+              <PostCard
+                selector={this.selectPostToShow}
+                post={post}
+                key={post._id}
+              />
+              <Divider />
+            </div>
           );
         })}
       </div>

@@ -1,13 +1,13 @@
 {
-  "main.css": "/newsletter-react/build/static/css/main.487fd04e.chunk.css",
-  "main.js": "/newsletter-react/build/static/js/main.1c19c888.chunk.js",
-  "main.js.map": "/newsletter-react/build/static/js/main.1c19c888.chunk.js.map",
+  "main.css": "/newsletter-react/build/static/css/main.7ec86de4.chunk.css",
+  "main.js": "/newsletter-react/build/static/js/main.5b8c755c.chunk.js",
+  "main.js.map": "/newsletter-react/build/static/js/main.5b8c755c.chunk.js.map",
   "runtime~main.js": "/newsletter-react/build/static/js/runtime~main.46d7fa2e.js",
   "runtime~main.js.map": "/newsletter-react/build/static/js/runtime~main.46d7fa2e.js.map",
-  "static/js/2.66750539.chunk.js": "/newsletter-react/build/static/js/2.66750539.chunk.js",
-  "static/js/2.66750539.chunk.js.map": "/newsletter-react/build/static/js/2.66750539.chunk.js.map",
+  "static/js/2.2f48b1cc.chunk.js": "/newsletter-react/build/static/js/2.2f48b1cc.chunk.js",
+  "static/js/2.2f48b1cc.chunk.js.map": "/newsletter-react/build/static/js/2.2f48b1cc.chunk.js.map",
   "index.html": "/newsletter-react/build/index.html",
-  "precache-manifest.66602f25ce1de031cd2b37c515e4c4b7.js": "/newsletter-react/build/precache-manifest.66602f25ce1de031cd2b37c515e4c4b7.js",
+  "precache-manifest.b3b4e4c0c8c6b04e8b39f88e964ba61e.js": "/newsletter-react/build/precache-manifest.b3b4e4c0c8c6b04e8b39f88e964ba61e.js",
   "service-worker.js": "/newsletter-react/build/service-worker.js",
-  "static/css/main.487fd04e.chunk.css.map": "/newsletter-react/build/static/css/main.487fd04e.chunk.css.map"
+  "static/css/main.7ec86de4.chunk.css.map": "/newsletter-react/build/static/css/main.7ec86de4.chunk.css.map"
 }
