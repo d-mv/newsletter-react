@@ -31,10 +31,12 @@
 
   text-align: center;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0s;
 
   &:hover {
     background-color: var(--silverSand);
+    margin-bottom: 0.4rem;
+    border-bottom: 0.1rem solid var(--arsenic);
   }
 
   &:active {
@@ -45,4 +47,5 @@
 
 .refreshSource {
   @extend .addSource;
+  margin-right: 0.2rem;
 }

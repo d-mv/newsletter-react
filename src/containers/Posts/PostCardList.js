@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 import { setPosts } from '../../actions';
 import { selectPost } from '../../actions';
 
-import PostCard from './PostCard';
+import PostCard from '../../components/Posts/PostCard';
 import style from './PostCardList.module.scss';
 import Error from '../../components/Error/Error';
 
 class PostCardList extends React.Component {
   componentWillMount() {
-    this.fetchMessages();
+    this.fetchPosts();
   }
 
   componentDidMount() {
-    this.refresher = setInterval(this.fetchMessages, 5000);
+    this.refresher = setInterval(this.fetchPosts, 5000);
     window.scrollTo(0, 0);
   }
 
@@ -23,7 +23,7 @@ class PostCardList extends React.Component {
     clearInterval(this.refresher);
   }
 
-  fetchMessages = () => {
+  fetchPosts = () => {
     this.props.setPosts().then(data => {});
   };
   selectPostToShow = postId => {

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import PostCardList from '../containers/Posts/PostCardList';
-import SourcesList from '../containers/Sources/SourcesList';
-import PostShow from './Posts/PostShow';
+import PostCardList from './Posts/PostCardList';
+import SourcesList from './Sources/SourcesList';
+import PostShow from '../components/Posts/PostShow';
 
 class ContentDisplay extends React.Component {
   constructor(props) {

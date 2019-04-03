@@ -13,23 +13,11 @@
   color: var(--dimGrey);
 }
 
-.title {
-  font-size: 120%;
-  cursor: pointer;
-}
-
 .secondLine {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-}
-
-.source {
-  font-weight: 300;
-  font-style: italic;
-  margin-top: 0.9rem;
-  font-size: 80%;
 }
 
 .text {

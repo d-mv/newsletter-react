@@ -1,7 +1,11 @@
 import React from 'react';
 
+import PostTitle from '../PostTitle/PostTitle';
+import Source from '../Source/Source';
 import PostButton from '../../containers/Posts/PostButton/PostButton';
-import dateTime from '../../modules/date_time';
+import DateTime from '../DateTime';
+import ApproxVolume from '../ApproxVolume';
+import Divider from '../Divider/Divider';
 import style from './PostShow.module.scss';
 
 class PostShow extends React.Component {
@@ -20,15 +24,21 @@ class PostShow extends React.Component {
     } else {
       author = `by ${this.props.post.author}`;
     }
-    const publishedDate = dateTime(new Date(this.props.post.published));
-    const parsedDate = dateTime(new Date(this.props.post.parsed));
+    // const publishedDate = dateTime();
+
+    // const parsedDate = dateTime(new Date(this.props.post.parsed));
     return (
       <article className={style.body}>
-        <header className={style.title} onClick={this.handleClick}>
-          {this.props.post.title}
-        </header>
+        <PostTitle
+          mode="show"
+          titleClick={this.handleClick}
+          postTitle={this.props.post.title}
+        />
         <div className={style.secondLine}>
-          <div className={style.author}>{author}</div>
+          <div className={style.sourceAuthorWrapper}>
+            <div className={style.author}>{author}</div>
+            <Source mode="show" source={this.props.post.source} />
+          </div>
           <div className={style.buttonsWrapper}>
             <PostButton
               type="star"
@@ -44,13 +54,23 @@ class PostShow extends React.Component {
         </div>
         <section
           className={style.text}
-          dangerouslySetInnerHTML={{ __html: this.props.post.text }}
+          dangerouslySetInnerHTML={{
+            __html: this.props.post.text
+          }}
         />
-        <div className={style.divider} />
+        <Divider />
         <footer className={style.statusLine}>
-          <div>published: {publishedDate}</div>
-          <div>parsed: {parsedDate}</div>
-          <div>~ {this.props.post.pages} pages</div>
+          <DateTime
+            pre="published:"
+            timestamp={new Date(this.props.post.published)}
+            mode="show"
+          />
+          <DateTime
+            pre="parsed:"
+            timestamp={new Date(this.props.post.parsed)}
+            mode="show"
+          />
+          <ApproxVolume volume={this.props.post.pages} units="pages" />
         </footer>
       </article>
     );

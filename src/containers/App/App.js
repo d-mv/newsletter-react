@@ -1,8 +1,8 @@
 import React from 'react';
 
-import TitleBar from '../TitleBar/TitleBar';
+import TitleBar from '../../components/TitleBar/TitleBar';
 import ContentDisplay from '../ContentDisplay';
-import NavMenu from '../NavMenu/NavMenu';
+import NavMenu from '../../components/NavMenu/NavMenu';
 
 class App extends React.Component {
   state = {

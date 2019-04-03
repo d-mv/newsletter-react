@@ -32,29 +32,36 @@ class SourceCreate extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    // form values
     const values = {
       name: event.target[0].value,
       url: event.target[1].value,
       home: event.target[2].value
     };
-    if (this.props.mode === 'edit') {
-      const newValues =
+    // if module mode Update
+    if (this.props.mode === 'Update') {
+      // are these old values?
+      const oldValues =
         values.name === this.props.source.name &&
         values.url === this.props.source.url &&
         values.home === this.props.source.home;
-      if (!newValues) {
+      // if no, then process
+      if (!oldValues) {
         const query = { id: this.props.source._id, values: values };
-        this.props.toggleEdit('');
+        this.props.toggleEditSource();
         this.props.updateSource(query);
+        // otherwise, just close
+      } else {
+        this.props.toggleEditSource();
       }
-    } else if (this.props.mode === 'create') {
+      // if module mode Create
+    } else if (this.props.mode === 'Create') {
       this.props.toggle();
       this.props.create(values);
     }
   }
 
   render() {
-    console.log(this.props);
     return (
       <form onSubmit={this.handleSubmit} className={style.createForm}>
         <label>
@@ -92,7 +99,7 @@ class SourceCreate extends React.Component {
             type="submit"
             value="Submit"
           >
-            Create
+            {this.props.mode}
           </button>
         </div>
       </form>

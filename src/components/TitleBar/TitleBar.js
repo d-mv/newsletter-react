@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DateTime from './DateTime';
+import DateTime from '../DateTime';
 import styles from './TitleBar.module.scss';
 
 export default class TitleBar extends React.Component {
