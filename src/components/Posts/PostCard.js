@@ -5,7 +5,7 @@ import PostButton from '../../containers/Posts/PostButton/PostButton';
 import Source from '../Source/Source';
 import DateTime from '../DateTime';
 import ApproxVolume from '../ApproxVolume';
-import Divider from '../Divider/Divider';
+// import Divider from '../Divider/Divider';
 import style from './PostCard.module.scss';
 
 class PostCard extends React.Component {
@@ -20,11 +20,9 @@ class PostCard extends React.Component {
 
   render() {
     const text = `${this.props.post.text.replace(/<(?:.|\n)*?>/gm, ' ')}...`;
-    let bodyClass = '';
+    let bodyClass = style.bodyFlex;
     if (this.props.post.read) {
       bodyClass = style.bodyRead;
-    } else {
-      bodyClass = style.body;
     }
     return (
       <section className={bodyClass} key={this.props.post._id}>
@@ -54,7 +52,7 @@ class PostCard extends React.Component {
             mode="card"
           />
         </footer>
-        <Divider />
+        {/* <Divider /> */}
       </section>
     );
   }
