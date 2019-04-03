@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "9dc5884dd1315cb3df14",
+    "revision": "bfe4c30c456c040b4e63",
     "url": "/newsletter-react/build/static/css/main.487fd04e.chunk.css"
   },
   {
-    "revision": "9dc5884dd1315cb3df14",
-    "url": "/newsletter-react/build/static/js/main.dfb6f48d.chunk.js"
+    "revision": "bfe4c30c456c040b4e63",
+    "url": "/newsletter-react/build/static/js/main.1c19c888.chunk.js"
   },
   {
     "revision": "a5b6c829bb26bf6266d6",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/newsletter-react/build/static/js/2.66750539.chunk.js"
   },
   {
-    "revision": "6ec047821fe90c5f9642cd7adf560273",
+    "revision": "0423fa53f404de1b7777fc90ae743b0f",
     "url": "/newsletter-react/build/index.html"
   }
 ];
