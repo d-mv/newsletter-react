@@ -1,7 +1,11 @@
 import React from 'react';
 
+import PostTitle from '../PostTitle/PostTitle';
 import PostButton from '../../containers/Posts/PostButton/PostButton';
-import dateTime from '../../modules/date_time';
+import Source from '../Source/Source';
+import DateTime from '../DateTime';
+import ApproxVolume from '../ApproxVolume';
+import Divider from '../Divider/Divider';
 import style from './PostCard.module.scss';
 
 class PostCard extends React.Component {
@@ -22,14 +26,15 @@ class PostCard extends React.Component {
     } else {
       bodyClass = style.body;
     }
-    const publishedDate = dateTime(new Date(this.props.post.published));
     return (
       <section className={bodyClass} key={this.props.post._id}>
-        <header className={style.title} onClick={this.handleClick}>
-          {this.props.post.title}
-        </header>
+        <PostTitle
+          mode="card"
+          titleClick={this.handleClick}
+          postTitle={this.props.post.title}
+        />
         <section className={style.secondLine}>
-          <div className={style.source}>@ {this.props.post.source}</div>
+          <Source mode="card" source={this.props.post.source} />
           <PostButton
             type="star"
             value={this.props.post.star}
@@ -42,10 +47,14 @@ class PostCard extends React.Component {
           dangerouslySetInnerHTML={{ __html: text }}
         />
         <footer className={style.statusLine}>
-          <div>{publishedDate}</div>
-          <div>~ {this.props.post.readTime} mins</div>
+          <DateTime timestamp={new Date(this.props.post.published)} />
+          <ApproxVolume
+            volume={this.props.post.readTime}
+            units="mins"
+            mode="card"
+          />
         </footer>
-        <div className={style.divider} />
+        <Divider />
       </section>
     );
   }

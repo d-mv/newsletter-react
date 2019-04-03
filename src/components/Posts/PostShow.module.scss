@@ -9,16 +9,6 @@
   max-width: 1000px;
 }
 
-.title {
-  @media (max-width: 599px) {
-    font-size: 150%;
-  }
-
-  font-size: 1.5rem;
-  font-style: italic;
-  line-height: 1.8rem;
-}
-
 .secondLine {
   display: flex;
   flex-direction: row;
@@ -26,6 +16,11 @@
   justify-content: space-between;
   align-content: center;
   margin-bottom: -0.6rem;
+}
+
+.sourceAuthorWrapper {
+  display: flex;
+  flex-direction: row;
 }
 
 .author {
@@ -140,19 +135,6 @@
     background-color: var(--silverSand);
     color: var(--arsenic);
     padding: 0.2rem;
-  }
-}
-
-.divider {
-  border-bottom: 1px solid var(--arsenic);
-  height: 2px;
-  width: 90%;
-
-  margin: {
-    top: 20px;
-    bottom: 10px;
-    left: auto;
-    right: auto;
   }
 }
 
