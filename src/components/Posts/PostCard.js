@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PostButton from './PostButton/PostButton';
+import PostButton from '../../containers/Posts/PostButton/PostButton';
 import dateTime from '../../modules/date_time';
 import style from './PostCard.module.scss';
 

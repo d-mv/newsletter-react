@@ -1,6 +1,6 @@
 {
   "name": "newsletter-react",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "description": "The Newsletter app frontend, React.",
   "main": "index.js",
   "repository": ".",

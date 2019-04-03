@@ -9,6 +9,12 @@ class SourceCard extends React.Component {
     this.props.sourceDelete(this.props.source._id);
   };
   render() {
+    let showEdit = false;
+    if (
+      this.props.showEditSourceId === this.props.source._id &&
+      this.props.showEdit
+    )
+      showEdit = true;
     return (
       <section className={style.sectionWrapper}>
         <div className={style.section}>
@@ -19,13 +25,17 @@ class SourceCard extends React.Component {
             <p className={style.url}>{this.props.source.url}</p>
           </section>
           <section className={style.buttonsWrapper}>
-            <SourceButton type="edit" toggleEdit={this.props.toggleEdit} />
+            <SourceButton
+              type="edit"
+              toggleEdit={this.props.toggleEdit}
+              sourceId={this.props.source._id}
+            />
             <SourceButton type="delete" sourceDelete={this.sourceDelete} />
           </section>
         </div>
-        {this.props.showEdit ? (
+        {showEdit ? (
           <SourceCreate
-            mode="edit"
+            mode="Update"
             toggleEdit={this.props.toggleEdit}
             source={this.props.source}
             updateSource={this.props.updateSource}

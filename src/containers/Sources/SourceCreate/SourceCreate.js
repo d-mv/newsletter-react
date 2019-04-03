@@ -37,7 +37,7 @@ class SourceCreate extends React.Component {
       url: event.target[1].value,
       home: event.target[2].value
     };
-    if (this.props.mode === 'edit') {
+    if (this.props.mode === 'Update') {
       const newValues =
         values.name === this.props.source.name &&
         values.url === this.props.source.url &&
@@ -47,7 +47,7 @@ class SourceCreate extends React.Component {
         this.props.toggleEdit('');
         this.props.updateSource(query);
       }
-    } else if (this.props.mode === 'create') {
+    } else if (this.props.mode === 'Create') {
       this.props.toggle();
       this.props.create(values);
     }
@@ -92,7 +92,7 @@ class SourceCreate extends React.Component {
             type="submit"
             value="Submit"
           >
-            Create
+            {this.props.mode}
           </button>
         </div>
       </form>

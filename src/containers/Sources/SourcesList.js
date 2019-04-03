@@ -17,14 +17,48 @@ class SourcesList extends React.Component {
   state = {
     showAddSource: false,
     showEditSource: false,
+    showEditSourceId: '',
     message: ''
   };
 
   toggleAddSource = () => {
-    this.setState(state => ({ showAddSource: !this.state.showAddSource }));
+    // if Edit Source component open - close it
+    if (this.state.showEditSource)
+      this.setState({
+        showEditSource: false,
+        showEditSourceId: ''
+      });
+    this.setState(state => ({
+      showAddSource: !this.state.showAddSource
+    }));
   };
-  toggleEditSource = e => {
-    this.setState(state => ({ showEditSource: !this.state.showEditSource }));
+
+  toggleEditSource = id => {
+    // if Add Source component open - close it
+    if (this.state.showAddSource) this.setState({ showAddSource: false });
+    // if Show Edit is true and ...
+    if (this.state.showEditSource) {
+      // ... there is same ID - close it
+      if (id === this.state.showEditSourceId) {
+        this.setState({
+          showEditSource: !this.state.showEditSource,
+          showEditSourceId: id
+        });
+        // ... this is different ID - open the other one
+      } else if (id && id !== this.state.showEditSourceId) {
+        this.setState({
+          showEditSource: true,
+          showEditSourceId: id
+        });
+      }
+    }
+    // if Show Edit is false
+    else {
+      this.setState({
+        showEditSource: true,
+        showEditSourceId: id
+      });
+    }
   };
 
   changeMessage = message => {
@@ -104,7 +138,7 @@ class SourcesList extends React.Component {
         </div>
         {this.state.showAddSource ? (
           <SourceCreate
-            mode="create"
+            mode="Create"
             create={this.createSource}
             toggle={this.toggleAddSource}
           />
@@ -119,6 +153,7 @@ class SourcesList extends React.Component {
               key={source._id}
               sourceDelete={this.sourceDelete}
               showEdit={this.state.showEditSource}
+              showEditSourceId={this.state.showEditSourceId}
               toggleEdit={this.toggleEditSource}
               updateSource={this.updateSource}
             />

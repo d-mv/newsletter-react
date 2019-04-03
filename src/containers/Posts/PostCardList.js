@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { setPosts } from '../../actions';
 import { selectPost } from '../../actions';
 
-import PostCard from './PostCard';
+import PostCard from '../../components/Posts/PostCard';
 import style from './PostCardList.module.scss';
 import Error from '../../components/Error/Error';
 
