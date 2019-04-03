@@ -27,7 +27,7 @@ class SourceCard extends React.Component {
           <section className={style.buttonsWrapper}>
             <SourceButton
               type="edit"
-              toggleEdit={this.props.toggleEdit}
+              toggleEditSource={this.props.toggleEditSource}
               sourceId={this.props.source._id}
             />
             <SourceButton type="delete" sourceDelete={this.sourceDelete} />
@@ -36,7 +36,7 @@ class SourceCard extends React.Component {
         {showEdit ? (
           <SourceCreate
             mode="Update"
-            toggleEdit={this.props.toggleEdit}
+            toggleEditSource={this.props.toggleEditSource}
             source={this.props.source}
             updateSource={this.props.updateSource}
           />

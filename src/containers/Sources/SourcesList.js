@@ -34,6 +34,9 @@ class SourcesList extends React.Component {
   };
 
   toggleEditSource = id => {
+    console.log(id);
+    console.log(this.state.showEditSource);
+    console.log(this.state.showEditSourceId);
     // if Add Source component open - close it
     if (this.state.showAddSource) this.setState({ showAddSource: false });
     // if Show Edit is true and ...
@@ -49,6 +52,11 @@ class SourcesList extends React.Component {
         this.setState({
           showEditSource: true,
           showEditSourceId: id
+        });
+      } else {
+        this.setState({
+          showEditSource: false,
+          showEditSourceId: ''
         });
       }
     }
@@ -154,7 +162,7 @@ class SourcesList extends React.Component {
               sourceDelete={this.sourceDelete}
               showEdit={this.state.showEditSource}
               showEditSourceId={this.state.showEditSourceId}
-              toggleEdit={this.toggleEditSource}
+              toggleEditSource={this.toggleEditSource}
               updateSource={this.updateSource}
             />
           );
