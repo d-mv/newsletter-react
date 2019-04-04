@@ -7,7 +7,7 @@
 
   &:hover {
     transform: scale(1.5);
-    color: var(--accent);
+    color: var(--arsenic);
   }
 }
 
@@ -18,7 +18,7 @@
 
 .on {
   @extend .button;
-  color: var(--accent);
+  color: var(--arsenic);
 
   &:hover {
     color: var(--darkMediumGrey);
