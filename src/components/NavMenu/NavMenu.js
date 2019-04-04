@@ -10,8 +10,9 @@ class NavMenu extends React.Component {
     return (
       <nav className={menuStyle}>
         <NavMenuElement options={this.props.options} name="toggle" />
-        <NavMenuElement options={this.props.options} name="Home" />
         <NavMenuElement options={this.props.options} name="Sources" />
+        <NavMenuElement options={this.props.options} name="Show/Hide Read" />
+        <NavMenuElement options={this.props.options} name="Home" />
       </nav>
     );
   }

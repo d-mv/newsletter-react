@@ -20,7 +20,7 @@ import sourceCreateModuleReducer from './reducers/source_create_module_reducer.j
 import WebFont from 'webfontloader';
 
 // load components
-import App from './containers/App/App';
+import App from './components/App/App';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
 

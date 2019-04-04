@@ -2,12 +2,11 @@
   cursor: pointer;
   font-family: 'Aleo';
   font-size: 1.2rem;
-
   color: var(--darkMediumGrey);
 
   &:hover {
     transform: scale(1.5);
-    color: var(--accent);
+    color: var(--arsenic);
   }
 }
 
@@ -18,9 +17,17 @@
 
 .on {
   @extend .button;
-  color: var(--accent);
+  color: var(--arsenic);
 
   &:hover {
     color: var(--darkMediumGrey);
   }
+}
+
+.read {
+  @extend .on;
+}
+
+.unRead {
+  @extend .button;
 }

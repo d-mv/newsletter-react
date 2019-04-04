@@ -4,11 +4,16 @@ import style from './NavMenuElement.module.scss';
 
 class NavMenuElement extends React.Component {
   handleClick = () => {
-    if (this.props.name !== 'toggle') {
+    if (this.props.name === 'Show/Hide Read') {
+      this.props.options.showRead('');
       this.props.options.menuOpen('');
-      this.props.options.show(this.props.name);
     } else {
-      this.props.options.menuOpen('');
+      if (this.props.name !== 'toggle') {
+        this.props.options.menuOpen('');
+        this.props.options.show(this.props.name);
+      } else {
+        this.props.options.menuOpen('');
+      }
     }
   };
 
