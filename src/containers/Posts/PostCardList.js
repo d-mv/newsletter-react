@@ -40,12 +40,23 @@ class PostCardList extends React.Component {
     return (
       <div className={style.grid}>
         {this.props.posts.map(post => {
-          return (
-            <div className={style.check} key={post._id}>
-              <PostCard selector={this.selectPostToShow} post={post} />
-              <Divider card />
-            </div>
-          );
+          if (!this.props.showRead && !post.read) {
+            return (
+              <div className={style.gridCell} key={post._id}>
+                <PostCard selector={this.selectPostToShow} post={post} />
+                <Divider card />
+              </div>
+            );
+          } else if (this.props.showRead) {
+            return (
+              <div className={style.gridCell} key={post._id}>
+                <PostCard selector={this.selectPostToShow} post={post} />
+                <Divider card />
+              </div>
+            );
+          } else {
+            return null;
+          }
         })}
       </div>
     );

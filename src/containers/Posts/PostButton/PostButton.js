@@ -11,11 +11,11 @@ class PostButton extends React.Component {
   updatePost = () => {
     let action = '';
     switch (this.props.type) {
-      case 'star':
-        action = ['post', 'update'];
+      case 'delete':
+        action = ['post', 'delete'];
         break;
       default:
-        action = ['post', 'delete'];
+        action = ['post', 'update'];
         break;
     }
     let fields = {};
@@ -36,6 +36,14 @@ class PostButton extends React.Component {
         buttonStyle = style.button;
         if (this.props.value) {
           buttonStyle = style.on;
+        }
+        break;
+      case 'read':
+        button = '◎';
+        buttonStyle = style.read;
+        if (this.props.value) {
+          button = '◉';
+          buttonStyle = style.unRead;
         }
         break;
       default:

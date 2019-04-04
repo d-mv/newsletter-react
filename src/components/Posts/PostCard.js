@@ -32,11 +32,18 @@ class PostCard extends React.Component {
         />
         <section className={style.secondLine}>
           <Source mode="card" source={this.props.post.source} />
-          <PostButton
-            type="star"
-            value={this.props.post.star}
-            postId={this.props.post._id}
-          />
+          <div className={style.buttonsWrapper}>
+            <PostButton
+              type="star"
+              value={this.props.post.star}
+              postId={this.props.post._id}
+            />
+            <PostButton
+              type="read"
+              value={this.props.post.read}
+              postId={this.props.post._id}
+            />
+          </div>
         </section>
         <section
           className={style.text}
