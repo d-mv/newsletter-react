@@ -3,7 +3,9 @@ import React from 'react';
 import style from './Divider.module.scss';
 class Divider extends React.Component {
   render() {
-    return <div className={style.divider} />;
+    let dividerStyle = style.divider;
+    if (this.props.card) dividerStyle = style.dividerCard;
+    return <div className={dividerStyle} />;
   }
 }
 export default Divider;

@@ -1,11 +1,36 @@
 .body {
-  padding: 10px;
-}
+  @media (min-width: 481px) {
+    max-height: 40rem;
 
-.bodyFlex {
-  @extend .body;
-  width: 300px;
-  height: 500px;
+    .secondLine {
+      height: 2rem;
+    }
+
+    .text {
+      max-height: 30rem;
+    }
+  }
+
+  .secondLine {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .text {
+    padding: 0.3rem 0;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 80%;
+    font-weight: 300;
+    padding: 0 0.3rem;
+  }
 }
 
 .bodyRead {
@@ -13,19 +38,8 @@
   color: var(--dimGrey);
 }
 
-.secondLine {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-}
-
-.text {
-  padding: 5px 0;
-  cursor: pointer;
-}
-
-.statusLine {
+.statsLine {
+  align-self: end;
   display: flex;
   justify-content: space-between;
   font-size: 80%;
@@ -33,17 +47,5 @@
 
   padding: {
     top: 0.3rem;
-  }
-}
-
-.divider {
-  border-bottom: 1px solid var(--darkMediumGrey);
-  height: 2px;
-  width: 80%;
-
-  margin: {
-    top: 0.8rem;
-    left: auto;
-    right: auto;
   }
 }

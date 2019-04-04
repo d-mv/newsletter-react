@@ -24,9 +24,6 @@ class PostShow extends React.Component {
     } else {
       author = `by ${this.props.post.author}`;
     }
-    // const publishedDate = dateTime();
-
-    // const parsedDate = dateTime(new Date(this.props.post.parsed));
     return (
       <article className={style.body}>
         <PostTitle
